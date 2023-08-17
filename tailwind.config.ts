@@ -1,7 +1,7 @@
 import type {Config} from 'tailwindcss'
 
 const config: Config = {
-    content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],
+    content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html", "./app/**/*.{js,jsx,ts,tsx}", "./index.html"],
     theme: {
         extend: {
             backgroundImage: {
@@ -12,9 +12,10 @@ const config: Config = {
         },
     },
     plugins: [
-        require('@tailwindcss/nesting'),
         require('postcss-import'),
-        require('postcss-nested')
+        require('tailwindcss/nesting'),
+        require('tailwindcss'),
+        require('autoprefixer')
     ],
 }
 export default config
