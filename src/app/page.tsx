@@ -11,7 +11,7 @@ export default function Home() {
                     <section className='border border-black basis-full md:basis-1/3 lg:basis-1/4'>
                         <section className='flex w-full'>
                             <h2 className='text-3xl'>오늘의 TO DO</h2>
-                            <span className='text-2xl self-end'>2023년 8월 22일 화요일</span>
+                            <span className='text-2xl self-end border border-red'>2023년 8월 22일 화요일</span>
                         </section>
                         <div className='description'>
 
