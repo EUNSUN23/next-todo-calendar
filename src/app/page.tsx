@@ -1,51 +1,20 @@
 import React from 'react';
+import Header from "@/components/Header";
 
 
 export default function Home() {
     return (
         <>
-            <div className="container">
-                <header className="header">
-                    <nav className="user-nav">
-                        <div className="user-nav__user">
-                            <span className="user-nav__user-name">Eunsun</span>
-                        </div>
-                    </nav>
-                </header>
-
-                <div className="content">
-                    <nav className="sidebar">
-                        <ul className="side-nav">
-                            <li className="side-nav__item side-nav__item--active">
-                                <a href="#" className="side-nav__link">
-                                    <span>Hotel</span>
-                                </a>
-                            </li>
-                            <li className="side-nav__item">
-                                <a href="#" className="side-nav__link">
-                                    <span>Flight</span>
-                                </a>
-                            </li>
-                            <li className="side-nav__item">
-                                <a href="#" className="side-nav__link">
-                                    <span>Car rental</span>
-                                </a>
-                            </li>
-                            <li className="side-nav__item">
-                                <a href="#" className="side-nav__link">
-                                    <span>Tours</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div className="legal">
-                            &copy: 2017 by trillo. All rights reserved.
-                        </div>
-                    </nav>
-
-                    <main className="hotel-view">
+            <div className="max-w-[120rem] my-32 mx-auto bg-[var(--color-grey-light-2)] shadow-[var(--shadow-dark)] min-h-[50rem]">
+                <Header/>
+                <section className="flex flex-wrap">
+                    <section className='border border-black basis-full md:basis-1/3 lg:basis-1/4'>
+                        <h2 className='text-3xl'>오늘의 TO DO</h2>
+                    </section>
+                    <main className="flex-1">
                         <h3>content 1</h3>
                     </main>
-                </div>
+                </section>
             </div>
         </>
     );
