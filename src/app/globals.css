@@ -51,7 +51,6 @@ body{
     font-family: 'Open Sans', 'sans-serif'; /* 브라우저가 Open Sans폰트 못 받으면 sans-serif로 적용. */
     font-weight: 400;
     line-height: 1.6;
-    color: var(--color-grey-dark-2);
     background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
     background-size: cover;
     background-repeat: no-repeat;
@@ -61,7 +60,6 @@ body{
 
 main {
     border:2px solid black;
-    color: rgb(var(--foreground-rgb));
     background-color: var(--color-grey-light-1);
 }
 
@@ -141,5 +139,26 @@ main {
 
 .content {
     display: flex;
+}
+
+@layer components {
+    .badge-red-700 {
+        @apply inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10;
+    }
+
+    .badge-yellow-800{
+        @apply inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20
+    }
+
+    .badge-green-700{
+        @apply inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20;
+    }
+
+    .badge-rounded-md {
+        @apply inline-flex items-center rounded-md font-medium ring-1 ring-inset
+    }
+
+
+
 }
 
