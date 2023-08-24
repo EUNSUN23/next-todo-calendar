@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={sans.className}>
-      <body className="font-normal leading-relaxed text-[var(--color-gray-dark-2)] bg-gradient-to-br from-[var(--color-teritary-light)] to-[var(--color-teritary-dark)] bg-cover bg-no-repeat min-h-screen" >{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
