@@ -1,9 +1,11 @@
+'use client';
 import React from 'react';
 import Header from "@/components/Header";
 import Badge from "@/components/Badge";
 import {MdFormatListBulletedAdd} from "react-icons/md";
-import {FiCheckSquare} from "react-icons/fi";
+// import {FiCheckSquare} from "react-icons/fi";
 import CheckSquare from "@/components/CheckSquare";
+import Calendar from "@/components/Calendar";
 
 
 export default function Home() {
@@ -40,7 +42,7 @@ export default function Home() {
                         {/* todo 끝 */}
                         {/*calendar 시작*/}
                         <section className='flex-1'>
-                            <h3>content 1</h3>
+                            <Calendar/>
 
                         </section>
                         {/*calendar 끝*/}
