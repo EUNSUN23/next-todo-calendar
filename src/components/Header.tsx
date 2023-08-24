@@ -12,7 +12,7 @@ import React from 'react';
 
 function Header() {
     return (
-        <header className="flex justify-between items-center text-2xl h-28 bg-white border-b border-[var(--line)]">
+        <header className="flex justify-between items-center text-2xl h-28 bg-white">
             <nav className="user-nav">
                 <div className="user-nav__user">
                     <span className="text-[var(--color-gray-dark-2)]">Eunsun</span>

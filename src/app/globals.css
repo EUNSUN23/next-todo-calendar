@@ -27,16 +27,16 @@
     --color-black: #000;
 
     --color-brick: #C2603F;
-    --color-primary:#0B1083;
+    --color-primary: #0B1083;
     --color-primary-light: #5A63B9;
-    --color-primary-dark:#201A43;
+    --color-primary-dark: #201A43;
     --color-neutral: #C1BDC4;
     --color-neutral-light: #E6EAF0;
     --color-neutral-dark: #676767;
 
-    --color-common:#4082B9;
-    --color-major:#DE9A21;
-    --color-important:#D22E1D;
+    --color-common: #4082B9;
+    --color-major: #DE9A21;
+    --color-important: #D22E1D;
 
     --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .3);
     --shadow-light: 0 2rem 5rem rgba(0, 0, 0, .06);
@@ -53,7 +53,7 @@
     box-sizing: inherit;
 }
 
-html{
+html {
     box-sizing: border-box;
     font-size: 62.5%; /* 1rem = 10px */
 }
@@ -69,48 +69,54 @@ html{
     display: flex;
     align-items: center;
 
-    & > * {
-      padding: 0 2rem;
-          cursor: pointer;
-          height: 100%;
-          display: flex;
-          align-items: center;
-      }
+&
+> * {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
-    & > *:hover {
-          background-color: var(--color-gray-light-2);
-      }
+&
+> *:hover {
+    background-color: var(--color-gray-light-2);
+}
 
-    &__icon-box {
-         position: relative;
-     }
+&
+__icon-box {
+    position: relative;
+}
 
-    &__icon {
-         height: 2.5rem;
-         width: 2.5rem;
-         fill: var(--color-gray-dark-2);
-     }
+&
+__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: var(--color-gray-dark-2);
+}
 
-    &__notification {
-         font-size: .8rem;
-         height: 1.75rem;
-         width: 1.75rem;
-         border-radius: 100%;
-         background-color: var(--color-primary);
-         color: #fff;
-         position: absolute;
-         top: 1.5rem;
-         right: 1.1rem;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-     }
+&
+__notification {
+    font-size: .8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 100%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    &__user-photo {
-         height: 3.75rem;
-         border-radius: 50%;
-         margin-right: 1rem;
-     }
+&
+__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
 
 }
 
@@ -129,9 +135,8 @@ html{
     }
 
     .container {
-        @apply max-w-[150rem] my-20 mx-auto bg-white shadow-stone-300 shadow-lg min-h-[50rem]
+        @apply max-w-[150rem] my-20 mx-auto bg-white shadow-gray-400/70 shadow-lg min-h-[50rem]
     }
-
 
 
 }
