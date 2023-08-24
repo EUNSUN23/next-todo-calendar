@@ -9,7 +9,7 @@ import CheckSquare from "@/components/CheckSquare";
 export default function Home() {
     return (
         <>
-            <div className="max-w-[150rem] my-20 mx-auto bg-[var(--color-grey-light-2)] shadow-[var(--shadow-dark)] min-h-[50rem]">
+            <div className="container">
                 <Header/>
                     <main className="flex flex-wrap">
                         {/* todo 시작 */}
@@ -20,7 +20,7 @@ export default function Home() {
                                     오늘의 TO DO
                                     <MdFormatListBulletedAdd className='inline pl-2' size='2.2rem'/>
                                 </div>
-                                <span className='text-2xl font-semibold text-[var(--color-grey-dark)]'>2023년 8월 22일 화요일</span>
+                                <span className='text-2xl font-semibold text-[var(--color-gray-dark)]'>2023년 8월 22일 화요일</span>
                             </section>
                             {/*todo 타이틀 끝*/}
                             {/*todo 목록 시작*/}
