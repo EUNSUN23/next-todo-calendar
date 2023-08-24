@@ -15,7 +15,7 @@ export default function Home() {
                 <Header/>
                     <main className="flex flex-wrap">
                         {/* todo 시작 */}
-                        <section className='border border-black basis-full md:basis-1/3 lg:basis-1/4 '>
+                        <section className='basis-full md:basis-1/3 lg:basis-1/4 '>
                             {/*todo 타이틀 시작*/}
                             <section className='flex justify-between w-full py-4 px-7'>
                                 <div className='flex items-center text-3xl font-semibold text-[var(--color-gray-dark-3)]'>

@@ -124,12 +124,12 @@ html{
         font-normal
         leading-relaxed
         text-[var(--color-gray-dark-2)]
-        bg-gradient-to-br from-[var(--color-teritary-light)] to-[var(--color-teritary-dark)] bg-cover bg-no-repeat
+        bg-gradient-to-b from-[var(--color-gray-light-1)] to-[var(--color-neutral-light)] bg-cover bg-no-repeat
         min-h-screen
     }
 
     .container {
-        @apply max-w-[150rem] my-20 mx-auto bg-white shadow-[var(--shadow-dark)] min-h-[50rem]
+        @apply max-w-[150rem] my-20 mx-auto bg-white shadow-stone-300 shadow-lg min-h-[50rem]
     }
 
 
