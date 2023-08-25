@@ -5,7 +5,7 @@ import Badge from "@/components/Badge";
 import {MdFormatListBulletedAdd} from "react-icons/md";
 // import {FiCheckSquare} from "react-icons/fi";
 import CheckSquare from "@/components/CheckSquare";
-import Calendar from "@/components/Calendar";
+import CalendarSection from "@/components/CalendarSection";
 
 
 export default function Home() {
@@ -41,10 +41,7 @@ export default function Home() {
                         </section>
                         {/* todo 끝 */}
                         {/*calendar 시작*/}
-                        <section className='flex-1'>
-                            <Calendar/>
-
-                        </section>
+                        <CalendarSection/>
                         {/*calendar 끝*/}
                     </main>
             </div>

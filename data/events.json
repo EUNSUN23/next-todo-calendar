@@ -1,0 +1,38 @@
+[
+    {
+      "id": "eventObject1",
+      "title" : "test data1",
+      "start":"20230816",
+      "end":"20230830",
+      "url": "",
+      "className": "",
+      "color":"var(--color-common)",
+      "backgroundColor": "",
+      "borderColor": "",
+      "textColor": ""
+    },
+    {
+      "id": "eventObject2",
+      "title" : "test data2",
+      "start":"20230816",
+      "end":"20230825",
+      "url": "",
+      "className": "",
+      "color":"var(--color-important)",
+      "backgroundColor": "",
+      "borderColor": "",
+      "textColor": ""
+    },
+    {
+      "id": "eventObject3",
+      "title" : "test data3",
+      "start":"20230822",
+      "end":"20230828",
+      "url": "",
+      "className": "",
+      "color":"var(--color-major)",
+      "backgroundColor": "",
+      "borderColor": "",
+      "textColor": ""
+    }
+  ]
