@@ -130,7 +130,8 @@ __user-photo {
         font-normal
         leading-relaxed
         text-[var(--color-gray-dark-2)]
-        bg-gradient-to-b from-[var(--color-gray-light-1)] to-[var(--color-neutral-light)] bg-cover bg-no-repeat
+        bg-[var(--color-neutral-light)]
+        /*bg-gradient-to-b from-[var(--color-gray-light-1)] to-[var(--color-neutral-light)] bg-cover bg-no-repeat*/
         min-h-screen
     }
 
