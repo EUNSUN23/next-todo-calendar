@@ -1,11 +1,6 @@
-import React from 'react';
+'use client';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-// import interactionPlugin from '@fullcalendar/interaction'
-// import resourceTimelinePlugin from '@fullcalendar/resource-timeline'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import {CalendarEvent} from "@/service/calendar";
-
 // full calendar 패키지 설치 : core + 플러그인들(core만으론 암것도 못함)
 // npm install \
 //   @fullcalendar/core \
@@ -13,22 +8,32 @@ import {CalendarEvent} from "@/service/calendar";
 //   @fullcalendar/timegrid \
 //   @fullcalendar/list
 
-type Props = {
-    events:CalendarEvent[];
+type CalendarEvent = {
+    id: string;
+    title: string;
+    start: string;
+    end: string;
+    url: string;
+    className: string;
+    color: string;
+    backGroundColor: string;
+    borderColor: string;
+    textColor: string;
 }
 
-export default function Calendar({events}:Props) {
+export default function Calendar({events}:CalendarEvent[]) {
+    console.log("events: ",events);
+
     return (
             <div className='calendar-container'>
                 <FullCalendar
                     plugins={[
-                        dayGridPlugin,
-                        timeGridPlugin
+                        dayGridPlugin
                     ]}
                     headerToolbar={{
                         left: 'prev,next today',
                         center: 'title',
-                        right: 'dayGridMonth,timeGridWeek'
+                        right: 'dayGridMonth'
                     }}
                     initialView='dayGridMonth'
                     nowIndicator={true}
