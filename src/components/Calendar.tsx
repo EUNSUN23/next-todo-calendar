@@ -45,7 +45,7 @@ export default function Calendar({events}:CalendarEvent[]) {
                         console.log('day', date.toISOString());
                         console.log('coords', jsEvent.pageX, jsEvent.pageY);
                     }}
-                    initialEvents={events}
+                    events={events}
                 />
             </div>
     )
