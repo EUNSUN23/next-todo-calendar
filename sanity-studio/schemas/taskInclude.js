@@ -1,0 +1,66 @@
+export default {
+    title:'TaskInclude',
+    name:'taskInclude',
+    type:'document',
+    fields:[
+        {
+            title:'GroupId',
+            name:'groupId',
+            type:'string'
+        },
+        {
+            title:'Notes',
+            name:'notes',
+            type:'array',
+            of:[
+                {
+                    title:'Note',
+                    name:'note',
+                    type:'document',
+                    fields:[
+                        {
+                            title:'NoteTitle',
+                            name: 'noteTitle',
+                            type:'string'
+                        },
+                        {
+                            title:'NoteContent',
+                            name: 'noteContent',
+                            type:'string'
+                        }
+                    ]
+                }
+            ]
+
+        },
+        {
+            title:'Todos',
+            name:'todos',
+            type:'array',
+            of:[
+                {
+                    title:'Todo',
+                    name:'todo',
+                    type:'document',
+                    fields: [
+                        {
+                            title:'TodoTitle',
+                            name:'todoTitle',
+                            type:'string'
+                        },
+                        {
+                            title:'TodoContents',
+                            name:'todoContents',
+                            type:'string'
+                        },
+                        {
+                            title:'Finish',
+                            name:'finish',
+                            type:'boolean'
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
