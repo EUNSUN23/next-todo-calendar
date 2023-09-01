@@ -1,0 +1,27 @@
+export default {
+    title:'User',
+    name:'user',
+    type:'document',
+    fields:[
+        {
+            title:'Name',
+            name:'name',
+            type:'string'
+        },
+        {
+            title:'UserName',
+            name:'userName',
+            type:'string'
+        },
+        {
+            title:'Phone',
+            name:'phone',
+            type:'string'
+        },
+        {
+            title:'CreatedAt',
+            name:'createdAt',
+            type:'string'
+        }
+    ]
+}

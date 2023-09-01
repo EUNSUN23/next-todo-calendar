@@ -8,7 +8,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 //   @fullcalendar/timegrid \
 //   @fullcalendar/list
 
-type CalendarEvent = {
+export type CalendarEvent = {
     id: string;
     title: string;
     start: string;

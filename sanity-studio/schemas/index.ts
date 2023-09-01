@@ -1,4 +1,6 @@
 import task from './task';
-import taskInclude from './taskInclude';
+import note from './note';
+import todo from './todo';
+import user from './user';
 
-export const schemaTypes = [task,taskInclude]
+export const schemaTypes = [task, note, todo, user]

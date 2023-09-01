@@ -9,8 +9,8 @@ export default {
             type: 'string'
         },
         {
-            title: 'TaskTitle',
-            name: 'taskTitle',
+            title: 'Description',
+            name: 'description',
             type: 'string',
         },
         {
@@ -42,8 +42,25 @@ export default {
             title: 'Finish',
             name: 'finish',
             type: 'boolean'
-        }
-
+        },
+        {
+            title:'Note',
+            name:'note',
+            type:'reference',
+            to:[{type:'note'}]
+        },
+        {
+            title:'Todo',
+            name:'todo',
+            type:'reference',
+            to:[{type:'todo'}]
+        },
+        {
+            title:'CreatedBy',
+            name:'createdBy',
+            type:'reference',
+            to:[{type:'user'}]
+        },
 
     ]
 }

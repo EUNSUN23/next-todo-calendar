@@ -1,0 +1,22 @@
+export default {
+    title:'Note',
+    name:'note',
+    type:'document',
+    fields:[
+        {
+            title:'id',
+            name:'Id',
+            type:'string'
+        },
+        {
+            title:'GroupId',
+            name:'groupId',
+            type:'string'
+        },
+        {
+            title:'Contents',
+            name:'contents',
+            type:'string'
+        }
+    ]
+}
