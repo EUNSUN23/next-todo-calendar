@@ -24,18 +24,8 @@ export default {
             type: 'string',
         },
         {
-            title: 'Color',
-            name: 'color',
-            type: 'string',
-        },
-        {
-            title: 'BackgroundColor',
-            name: 'BackgroundColor',
-            type: 'string',
-        },
-        {
-            title: 'ClassName',
-            name: 'className',
+            title: 'Level',
+            name: 'level',
             type: 'string',
         },
         {
@@ -44,16 +34,27 @@ export default {
             type: 'boolean'
         },
         {
-            title:'Note',
-            name:'note',
-            type:'reference',
-            to:[{type:'note'}]
+            title:'Notes',
+            name:'notes',
+            type:'array',
+            of:[
+                {
+                    type:'reference',
+                    to:[{type:'note'}]
+                }
+            ]
         },
         {
-            title:'Todo',
-            name:'todo',
-            type:'reference',
-            to:[{type:'todo'}]
+            title:'Todos',
+            name:'todos',
+            type:'array',
+            of:[
+                {
+                    type:'reference',
+                    to:[{type:'todo'}]
+                }
+            ]
+
         },
         {
             title:'CreatedBy',
