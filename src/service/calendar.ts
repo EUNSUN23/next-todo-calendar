@@ -2,6 +2,7 @@ import {ClientConfig, createClient} from "next-sanity";
 import path from "path";
 import {readFile} from "fs/promises";
 import _ from "lodash";
+import {DateFormat, formatDateToStr} from "@/utils/common";
 
 export type CalendarEvent = {
     id: string;
@@ -37,11 +38,13 @@ export async function getEvents(){
 }
 
 export async function getTasks(){
-    // const today = new Date();
-    // const year = today.getFullYear().toString();
-    // const month = _.padStart((today.getMonth() + 1).toString(),2,"0");
+     const date = new Date();
+     const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+     const endDate = formatDateToStr(lastDayOfMonth, DateFormat.YMD_DASH);
 
-    const tasks = await client.fetch(`*[_type == "task"]`);
+    const query = `*[_type == "task" && start <= "${endDate} && !finish"]{groupId, description, start, end, level, finish}`;
+    const tasks = await client.fetch(query);
 
     return tasks;
 }
+

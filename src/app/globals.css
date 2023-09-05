@@ -34,8 +34,8 @@
     --color-neutral-light: #E6EAF0;
     --color-neutral-dark: #676767;
 
-    --color-common: #4082B9;
-    --color-major: #DE9A21;
+    --color-common: #2998ff;
+    --color-minor: #ffb900;
     --color-important: #D22E1D;
 
     --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .3);
