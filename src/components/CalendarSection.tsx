@@ -1,42 +1,44 @@
 'use client';
-import React, {useEffect, useState} from 'react';
 import Calendar from "@/components/Calendar";
-// import Calendar from "@/components/Calendar";
 
-function CalendarSection() {
-    const [tasks, setTasks] = useState([]);
-    // todo 이번달에 해당하는 모든 event 조회해서 Calendar컴포넌트에 넘겨주기.
-    useEffect(()=>{
+export type Note = {
+    id: string;
+    groupId: string;
+    contents: string;
+}
 
-        async function getTasks(){
-            const res = await fetch("/api/calendar");
-            const data = await res.json();
-            for(const task of data.tasks){
-                task.title = task.description;
-                switch(task.level){
-                    case '1':
-                        task.color = 'var(--color-minor)';
-                        break;
-                    case '2':
-                        task.color = 'var(--color-common)';
-                        break;
-                    case '3':
-                        task.color = 'var(--color-important)';
-                        break;
-                    default:
-                        task.color = 'var(--color-common)';
-                }
-            }
-            setTasks(data.tasks);
-        }
+export type Todo = Note & {finish:boolean;}
 
-        getTasks();
+export type User = {
+    name:string;
+    userName:string;
+    phone:string;
+    createdAt:string;
+}
 
-    },[]);
+export type Task = {
+    groupId:string;
+    description: string;
+    start: string;
+    end: string;
+    level: string;
+    finish: boolean;
+    notes:Note[] | [];
+    todos:Todo[] | [];
+    createdBy: User | Record<string, never>;
+}
+
+type Props = {
+    tasks: Task[];
+}
+
+function CalendarSection({tasks}:Props) {
 
     return (
         <section className='flex-1'>
-            <Calendar events={tasks}/>
+            <div className='calendar-container'>
+                <Calendar tasks={tasks}/>
+            </div>
         </section>
     );
 }
