@@ -1,5 +1,5 @@
 import React from 'react';
-import CalendarSection from "@/components/CalendarSection";
+import CalendarSection, {Task} from "@/components/CalendarSection";
 import TodoSection from "@/components/TodoSection";
 import {MdFormatListBulletedAdd} from "react-icons/md";
 import {getTasks} from "@/service/calendar";
@@ -23,7 +23,7 @@ export default async function Home() {
                     </section>
                     <TodoSection/>
                 </section>
-                <CalendarSection tasks={tasks}/>
+                <CalendarSection tasks={tasks as Task[]}/>
             </main>
         </>
     );
