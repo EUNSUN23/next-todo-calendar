@@ -1,14 +1,11 @@
 import React from 'react';
-import CalendarSection, {Task} from "@/components/CalendarSection";
+import CalendarSection from "@/components/CalendarSection";
 import TodoSection from "@/components/TodoSection";
 import {MdFormatListBulletedAdd} from "react-icons/md";
-import {getTasks} from "@/service/calendar";
 
 // 서버 컴포넌트
 // tasks, tasks의 groupId 가진 todo & note들 불러오기
 export default async function Home() {
-
-    const tasks = await getTasks();
 
     return (
         <>
@@ -23,7 +20,7 @@ export default async function Home() {
                     </section>
                     <TodoSection/>
                 </section>
-                <CalendarSection tasks={tasks as Task[]}/>
+                <CalendarSection />
             </main>
         </>
     );

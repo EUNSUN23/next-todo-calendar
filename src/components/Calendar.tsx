@@ -1,11 +1,19 @@
 'use client';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import {Task} from "@/components/CalendarSection";
+import {useQuery, useQueryClient} from "@tanstack/react-query";
+import {getTasks} from "@/service/calendar";
+import {Task} from "@/utils/types";
 
 
-export default function Calendar({tasks}:Task[]) {
-    console.log("tasks: ",tasks);
+export default function Calendar() {
+
+    // const queryClient = useQueryClient();
+
+    const {tasks}:Task[] = useQuery({
+        queryKey:['tasks'],
+        queryFn: getTasks
+    });
 
     return (
                 <FullCalendar
