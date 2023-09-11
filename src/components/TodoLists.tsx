@@ -12,7 +12,7 @@ function TodoLists() {
     return (
         <section className='description'>
             <ul className='pl-4'>
-                {tasks.map(v => <Todo task={v}/>)}
+                {tasks.map(v => <Todo key={v.groupId}  task={v}/>)}
             </ul>
         </section>
     );
