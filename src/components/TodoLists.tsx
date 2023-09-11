@@ -7,7 +7,7 @@ import {useTasks} from "@/hooks/useTasks";
 
 function TodoLists() {
     const {tasks, isLoading, error} = useTasks();
-    if(isLoading) return <h3>loading</h3>
+    if(isLoading) return <h3>loading</h3> // todo loading bar 추가
 
     return (
         <section className='description'>

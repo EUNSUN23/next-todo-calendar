@@ -24,3 +24,7 @@ export type Task = {
     todos:Todo[] | [];
     createdBy: User | Record<string, never>;
 }
+
+export type ReactChildNode = {
+    children : React.ReactNode
+}
