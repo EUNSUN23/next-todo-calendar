@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoHeader from "@/components/TodoHeader";
 import TodoLists from "@/components/TodoLists";
-import calendarSection from "@/components/CalendarSection";
+import CurrentTask from "@/components/CurrentTask";
 
 
 function TodoSection() {
@@ -11,9 +11,7 @@ function TodoSection() {
                 <TodoHeader/>
                 <TodoLists/>
             </section>
-            <section className='border-2 border-black basis-full md:basis-1/3 lg:basis-1/4'>
-
-            </section>
+            <CurrentTask/>
         </>
     );
 }
