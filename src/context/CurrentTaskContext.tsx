@@ -1,3 +1,4 @@
+'use client';
 import React,{createContext, useContext, useReducer} from 'react';
 import {ReactChildNode, Task} from "@/utils/types";
 
@@ -18,9 +19,9 @@ const initialState:CurrentTodoState = {
 function reducer(state, action){
     switch(action.type){
         case 'task/opened':
-            return {...state, isOpen: true, currentTodo: action.payload.task};
+            return {...state, isOpen: true, currentTask: action.payload};
         case 'task/closed':
-            return {...state, isOpen:false, currentTodo: {}};
+            return {...state, isOpen:false, currentTask: {}};
         default:
             throw new Error("Unknown action type");
     }
@@ -28,19 +29,29 @@ function reducer(state, action){
 
 
 export function CurrentTaskProvider({children}:ReactChildNode) {
-    const [{isOpen, currentTodo, error}, dispatch] = useReducer(reducer, initialState);
+    const [{isOpen, currentTask, error}, dispatch] = useReducer(reducer, initialState);
 
     function openCurrentTask(task:Task){
-        dispatch({type:'task/open'})
+        dispatch({type:'task/opened', payload: task});
+    }
+
+    function closeCurrentTask(){
+        dispatch({type:'task/closed'});
     }
 
     return (
         <CurrentTaskContext.Provider value={{
             isOpen,
-            currentTodo,
-            error
+            currentTask,
+            error,
+            openCurrentTask,
+            closeCurrentTask
         }}>{children}</CurrentTaskContext.Provider>
     );
 }
 
-export default CurrentTaskProvider;
+export function useCurrentTask(){
+    const context = useContext(CurrentTaskContext);
+    if(context === undefined) throw new Error("CurrentTaskContext was used outside the CurrentTaskContextProvider");
+    return context;
+}
