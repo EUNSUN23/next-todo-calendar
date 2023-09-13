@@ -8,7 +8,7 @@ import {useCurrentTask} from "@/context/CurrentTaskContext";
 type Props = {
     task:Task;
 }
-function Todo({task}:Props) {
+function TodoItem({task}:Props) {
     const {openCurrentTask, closeCurrentTask, isOpen} = useCurrentTask();
     console.log("task: ",task);
     // todo - description클릭시 task 상세 페이지 open..
@@ -23,4 +23,4 @@ function Todo({task}:Props) {
     );
 }
 
-export default Todo;
+export default TodoItem;
