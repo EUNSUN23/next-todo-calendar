@@ -22,6 +22,23 @@ export default {
             title:'Finish',
             name:'finish',
             type:'boolean'
+        },
+        {
+            title:'CreatedBy',
+            name:'createdBy',
+            type:'reference',
+            to:[{type:'user'}]
+        },
+        {
+            title: 'UpdateDate',
+            name : 'updateDate',
+            type : 'string'
+        },
+        {
+            title: 'Assignee',
+            name : 'assignee',
+            type : 'reference',
+            to:[{type:'user'}]
         }
     ]
 }
