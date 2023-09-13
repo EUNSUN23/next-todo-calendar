@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoSection from "@/components/TodoSection";
+import TaskSection from "@/components/TaskSection";
 import CalendarSection from "@/components/CalendarSection";
 import Header from "@/components/Header";
 import {CurrentTaskProvider} from "@/context/CurrentTaskContext";
@@ -10,7 +10,7 @@ function MainPage() {
             <Header/>
             <main className="flex flex-wrap">
                 <CurrentTaskProvider>
-                    <TodoSection/>
+                    <TaskSection/>
                     <CalendarSection/>
                 </CurrentTaskProvider>
             </main>
