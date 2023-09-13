@@ -1,7 +1,7 @@
 import React from 'react';
 import {MdFormatListBulletedAdd} from "react-icons/md";
 
-function TodoHeader() {
+function TaskViewHeader() {
     return (
         <section className='flex justify-between w-full py-4 px-7'>
             <div className='flex items-center text-3xl font-semibold text-[var(--color-gray-dark-3)]'>
@@ -13,4 +13,4 @@ function TodoHeader() {
     );
 }
 
-export default TodoHeader;
+export default TaskViewHeader;
