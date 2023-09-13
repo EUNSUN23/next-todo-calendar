@@ -17,6 +17,17 @@ export default {
             title:'Contents',
             name:'contents',
             type:'string'
+        },
+        {
+            title:'CreatedBy',
+            name:'createdBy',
+            type:'reference',
+            to:[{type:'user'}]
+        },
+        {
+            title: 'UpdateDate',
+            name : 'updateDate',
+            type : 'string'
         }
     ]
 }
