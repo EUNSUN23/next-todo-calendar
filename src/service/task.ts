@@ -1,5 +1,6 @@
 import {ClientConfig, createClient} from "next-sanity";
-import {DateFormat, formatDateToStr} from "@/utils/common";
+import {formatDateToStr} from "@/utils/common";
+import {DateFormat} from "@/utils/constant";
 
 const client = createClient({
     projectId: "1jtekrqc",
@@ -12,7 +13,6 @@ const client = createClient({
  * groupId로 task 상세 조회
  * @param taskId
  */
-
 export async function getTaskById(taskId:string){
     const query = `*[_type == "task" && groupId == "${taskId}"]{
         groupId, description, start, end, level, finish,
