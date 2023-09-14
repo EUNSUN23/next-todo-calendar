@@ -1,9 +1,7 @@
 import _ from "lodash";
+import {DateFormat} from "@/utils/constant";
 
-export enum DateFormat {
-    YMD = 'yyyyMMdd',
-    YMD_DASH = 'yyyy-MM-dd'
-}
+
 
 export function formatDateToStr(date:Date, format: DateFormat.YMD | DateFormat.YMD_DASH){
     const year = date.getFullYear().toString();
