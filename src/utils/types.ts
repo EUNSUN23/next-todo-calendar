@@ -2,9 +2,14 @@ export type Note = {
     id: string;
     groupId: string;
     contents: string;
+    createdBy: User;
+    updateDate : string;
 }
 
-export type Todo = Note & {finish:boolean;}
+export type Todo = {
+    finish: boolean;
+    assignee : User[]
+} & Note
 
 export type User = {
     name:string;
