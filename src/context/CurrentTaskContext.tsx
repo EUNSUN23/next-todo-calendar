@@ -6,22 +6,22 @@ const CurrentTaskContext = createContext();
 
 export type CurrentTodoState = {
     isOpen: boolean;
-    currentTask: Record<string, never>;
+    currentTaskId: string;
     error: string;
 }
 
 const initialState:CurrentTodoState = {
     isOpen: false,
-    currentTask:{},
-    error: ""
+    currentTaskId:'',
+    error: ''
 }
 
 function reducer(state, action){
     switch(action.type){
         case 'task/opened':
-            return {...state, isOpen: true, currentTask: action.payload};
+            return {...state, isOpen: true, currentTaskId: action.payload};
         case 'task/closed':
-            return {...state, isOpen:false, currentTask: {}};
+            return {...state, isOpen:false, currentTaskId: ''};
         default:
             throw new Error("Unknown action type");
     }
@@ -29,10 +29,10 @@ function reducer(state, action){
 
 
 export function CurrentTaskProvider({children}:ReactChildNode) {
-    const [{isOpen, currentTask, error}, dispatch] = useReducer(reducer, initialState);
+    const [{isOpen, currentTaskId, error}, dispatch] = useReducer(reducer, initialState);
 
-    function openCurrentTask(task:Task){
-        dispatch({type:'task/opened', payload: task});
+    function openCurrentTask(taskId:string){
+        dispatch({type:'task/opened', payload: taskId});
     }
 
     function closeCurrentTask(){
@@ -42,7 +42,7 @@ export function CurrentTaskProvider({children}:ReactChildNode) {
     return (
         <CurrentTaskContext.Provider value={{
             isOpen,
-            currentTask,
+            currentTaskId,
             error,
             openCurrentTask,
             closeCurrentTask

@@ -7,14 +7,15 @@ import {useCurrentTask} from "@/context/CurrentTaskContext";
 
 type Props = {
     task:Task;
+    key: string;
 }
-function TodoItem({task}:Props) {
+function TodoItem({task, key}:Props) {
     const {openCurrentTask, closeCurrentTask, isOpen} = useCurrentTask();
     console.log("task: ",task);
     // todo - description클릭시 task 상세 페이지 open..
     return (
         <li className='flex justify-center space-x-4 text-2xl text-[var(--color-gray-dark)] font-semibold'>
-              <span className='flex pointer' onClick={() => isOpen ? closeCurrentTask() : openCurrentTask(task)}>
+              <span className='flex pointer' onClick={() => isOpen ? closeCurrentTask() : openCurrentTask(key)}>
                   <CheckSquare id='todo1'/>
                   <span>{task.description}</span>
               </span>
