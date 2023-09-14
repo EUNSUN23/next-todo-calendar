@@ -13,7 +13,7 @@ function TaskDetailView({currentTaskId}:Props) {
     // todo react-query로 taskId에 맞는 task 가져오기.
 
 
-    // console.log("currentTask: ",currentTask);
+    console.log("currentTask: ",task);
     // currentTask.title // 테스트프로젝트 2 /타이틀
     // currentTask.finish // 테스트프로젝트 2 / 완료 여부
     // currentTask.start // yyyy-mm-dd
