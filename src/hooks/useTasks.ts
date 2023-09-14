@@ -1,11 +1,18 @@
 import {useQuery} from "@tanstack/react-query";
 import {getTasks} from "@/service/task";
+import {Task} from "@/utils/types";
 
-export function useTasks(){
+type TasksResponse = {
+    tasks : Task[],
+    isLoading: boolean,
+    error : Error
+}
+
+export function useTasks():TasksResponse{
     const {data:tasks, isLoading, error} = useQuery({
         queryKey:['tasks'],
         queryFn: getTasks
     });
 
-    return {tasks, isLoading, error};
+    return {tasks, isLoading, error} as TasksResponse;
 }
