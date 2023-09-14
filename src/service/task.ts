@@ -14,7 +14,7 @@ const client = createClient({
  */
 
 export async function getTaskById(taskId:string){
-    const query = `*[_type == "task" && groupId == ${taskId}]{
+    const query = `*[_type == "task" && groupId == "${taskId}"]{
         groupId, description, start, end, level, finish,
         notes[]->, todos[]->, createdBy->
     }`;
