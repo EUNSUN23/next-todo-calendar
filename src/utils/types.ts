@@ -25,9 +25,9 @@ export type Task = {
     end: string;
     level: string;
     finish: boolean;
-    notes:Note[] | [];
-    todos:Todo[] | [];
-    createdBy: User | Record<string, never>;
+    notes?:Note[] | [];
+    todos?:Todo[] | [];
+    createdBy?: User | Record<string, never>;
 }
 
 export type ReactChildNode = {
