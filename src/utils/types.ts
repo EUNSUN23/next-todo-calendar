@@ -30,6 +30,18 @@ export type Task = {
     createdBy?: User | Record<string, never>;
 }
 
+export type TaskEditRequestVo = {
+    groupId:string;
+    description?: string;
+    start?: string;
+    end?: string;
+    level?: string;
+    finish?: boolean;
+    notes?:Note[] | [];
+    todos?:Todo[] | [];
+    createdBy?: User | Record<string, never>;
+}
+
 export type ReactChildNode = {
     children : React.ReactNode
 }
