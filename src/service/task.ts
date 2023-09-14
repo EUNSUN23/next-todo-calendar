@@ -17,7 +17,7 @@ export async function getTaskById(taskId:string){
     const query = `*[_type == "task" && groupId == "${taskId}"]{
         groupId, description, start, end, level, finish,
         notes[]->, todos[]->, createdBy->
-    }`;
+    }[0]`;
 
     return await client.fetch(query);
 }
