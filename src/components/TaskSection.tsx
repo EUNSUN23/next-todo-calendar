@@ -6,7 +6,7 @@ import TaskDetailView from "@/components/TaskDetailView";
 
 
 function TaskSection() {
-    const {isOpen} = useCurrentTask();
+    const {isOpen, currentTaskId} = useCurrentTask();
 
     const fullDisplay = "xl:basis-[850px] flex max-lg:flex-col";
     const todoDisplay = "lg:basis-[400px] md:basis-[250px]";
@@ -15,7 +15,7 @@ function TaskSection() {
         <>
             <section className={`basis-full ${isOpen ? fullDisplay : todoDisplay} `}>
                 <TaskView />
-                <TaskDetailView/>
+                {isOpen && <TaskDetailView currentTaskId={currentTaskId}/>}
             </section>
         </>
     );
