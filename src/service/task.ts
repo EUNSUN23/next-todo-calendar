@@ -1,6 +1,8 @@
-import {ClientConfig, createClient} from "next-sanity";
+import {ClientConfig} from "next-sanity";
 import {formatDateToStr} from "@/utils/common";
 import {DateFormat} from "@/utils/constant";
+import {TaskEditRequestVo} from "@/utils/types";
+import {createClient} from "@sanity/client";
 
 const client = createClient({
     projectId: "1jtekrqc",
@@ -56,5 +58,18 @@ export async function getTasks(){
     }
 
     return res;
+}
+
+export async function editTaskById(requestVo:TaskEditRequestVo){
+    return  await client.patch(requestVo.groupId) // Document ID to patch
+        .set(requestVo) // Shallow merge
+        .commit(); // Perform the patch and return a promise
+        // .then((updatedBike) => {
+        //     console.log('Hurray, the bike is updated! New document:')
+        //     console.log(updatedBike)
+        // })
+        // .catch((err) => {
+        //     console.error('Oh no, the update failed: ', err.message)
+        // })
 }
 
