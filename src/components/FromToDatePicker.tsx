@@ -1,5 +1,5 @@
 'use client';
-import React, {useState} from 'react';
+import React from 'react';
 import DatePicker from "react-datepicker";
 import {BsCalendarWeek} from "react-icons/bs";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,8 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 type Props = {
     startDate: Date;
     endDate: Date;
-    onChangeStartDate: () => void;
-    onChangeEndDate : () => void;
+    onChangeStartDate: (date:Date) => void;
+    onChangeEndDate : (date:Date) => void;
 }
 function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDate}:Props) {
     return (
