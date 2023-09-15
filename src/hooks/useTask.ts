@@ -8,7 +8,7 @@ type TaskResponse = {
     error: Error
 }
 export function useTask(taskId:string):TaskResponse{
-    const {task, isLoading, error} = useQuery({
+    const {data:task, isLoading, error} = useQuery({
         queryKey:['task'],
         queryFn: () => getTaskById(taskId)
     });
