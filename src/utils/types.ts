@@ -19,6 +19,7 @@ export type User = {
 }
 
 export type Task = {
+    _id:string;
     groupId:string;
     description: string;
     start: string;
@@ -31,7 +32,8 @@ export type Task = {
 }
 
 export type TaskEditRequestVo = {
-    groupId:string;
+    _id:string;
+    groupId?:string;
     description?: string;
     start?: string;
     end?: string;
