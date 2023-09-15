@@ -16,8 +16,8 @@ const client = createClient({
  * @param taskId
  */
 export async function getTaskById(taskId:string){
-    const query = `*[_type == "task" && groupId == "${taskId}"]{
-        groupId, description, start, end, level, finish,
+    const query = `*[_type == "task" && _id == "${taskId}"]{
+        _id, groupId, description, start, end, level, finish,
         notes[]->, todos[]->, createdBy->
     }[0]`;
 
@@ -34,7 +34,7 @@ export async function getTasks(){
      const endDate = formatDateToStr(lastDayOfMonth, DateFormat.YMD_DASH);
 
     const query = `*[_type == "task" && start <= "${endDate} && !finish"]{
-        groupId, description, start, end, level, finish
+        _id, groupId, description, start, end, level, finish
     }`;
     const res = await client.fetch(query);
 
@@ -61,7 +61,7 @@ export async function getTasks(){
 }
 
 export async function editTaskById(requestVo:TaskEditRequestVo){
-    return  await client.patch(requestVo.groupId) // Document ID to patch
+    return  await client.patch(requestVo._id) // Document ID to patch
         .set(requestVo) // Shallow merge
         .commit(); // Perform the patch and return a promise
         // .then((updatedBike) => {
