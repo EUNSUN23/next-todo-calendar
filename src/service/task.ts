@@ -1,15 +1,15 @@
-import {ClientConfig} from "next-sanity";
 import {formatDateToStr} from "@/utils/common";
 import {DateFormat} from "@/utils/constant";
 import {TaskEditRequestVo} from "@/utils/types";
 import {createClient} from "@sanity/client";
 
 const client = createClient({
-    projectId: "1jtekrqc",
-    dataset: "production",
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
     apiVersion: "2022-03-25",
-    useCdn: false
-} as ClientConfig);
+    useCdn: false,
+    token: process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN
+});
 
 /**
  * groupId로 task 상세 조회
