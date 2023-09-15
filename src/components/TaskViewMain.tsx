@@ -11,7 +11,7 @@ function TaskViewMain() {
     return (
         <section className='description'>
             <ul className='pl-4'>
-                {tasks.map(v => <TodoItem key={v.groupId}  task={v}/>)}
+                {tasks.map(v => <TodoItem key={v._id}  task={v}/>)}
             </ul>
         </section>
     );
