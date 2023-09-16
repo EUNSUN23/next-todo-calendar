@@ -1,7 +1,7 @@
 'use client';
 import React, {forwardRef} from 'react';
 import DatePicker from "react-datepicker";
-import {BsCalendarWeek} from "react-icons/bs";
+import {BsCalendarWeek, BsDash} from "react-icons/bs";
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -28,16 +28,14 @@ function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDat
                     onChange={onChangeStartDate}
                     customInput={<CustomDatePickerInput/>}
                 />
-                <BsCalendarWeek/>
             </span>
-            <span>&#45;</span>
+            <BsDash/>
             <span className='fc'>
                 <DatePicker
                     selected={endDate}
                     onChange={onChangeEndDate}
                     customInput={<CustomDatePickerInput/>}
                 />
-                <BsCalendarWeek/>
             </span>
         </section>
     );
