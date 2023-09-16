@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, {forwardRef} from 'react';
 import DatePicker from "react-datepicker";
 import {BsCalendarWeek} from "react-icons/bs";
 import "react-datepicker/dist/react-datepicker.css";
@@ -11,16 +11,32 @@ type Props = {
     onChangeStartDate: (date:Date) => void;
     onChangeEndDate : (date:Date) => void;
 }
+
+
+const CustomDatePickerInput = forwardRef(({ value, onClick }, ref) => (
+    <button className="fc-button fc-button-primary" onClick={onClick} ref={ref}>
+        {value}
+    </button>
+));
+
 function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDate}:Props) {
     return (
-        <section className='px-1.5 text-2xl text-[var(--color-gray-dark-3)]'>
-            <span>
-                <DatePicker selected={startDate} onChange={onChangeStartDate}/>
+        <section className='px-1.5 text-xl text-[var(--color-gray-dark-3)]'>
+            <span className='fc'>
+                <DatePicker
+                    selected={startDate}
+                    onChange={onChangeStartDate}
+                    customInput={<CustomDatePickerInput/>}
+                />
                 <BsCalendarWeek/>
             </span>
             <span>&#45;</span>
-            <span>
-                <DatePicker selected={endDate} onChange={onChangeEndDate}/>
+            <span className='fc'>
+                <DatePicker
+                    selected={endDate}
+                    onChange={onChangeEndDate}
+                    customInput={<CustomDatePickerInput/>}
+                />
                 <BsCalendarWeek/>
             </span>
         </section>
