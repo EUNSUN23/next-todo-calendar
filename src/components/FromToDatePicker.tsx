@@ -21,8 +21,8 @@ const CustomDatePickerInput = forwardRef(({ value, onClick }, ref) => (
 
 function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDate}:Props) {
     return (
-        <section className='px-1.5 text-xl text-[var(--color-gray-dark-3)]'>
-            <span className='fc'>
+        <section className='flex items-center mx-3 text-xl text-[var(--color-gray-dark-3)]'>
+            <span className='fc mx-1.5'>
                 <DatePicker
                     selected={startDate}
                     onChange={onChangeStartDate}
@@ -30,7 +30,7 @@ function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDat
                 />
             </span>
             <BsDash/>
-            <span className='fc'>
+            <span className='fc mx-1.5'>
                 <DatePicker
                     selected={endDate}
                     onChange={onChangeEndDate}
