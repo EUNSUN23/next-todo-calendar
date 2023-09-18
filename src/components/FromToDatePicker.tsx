@@ -3,6 +3,7 @@ import React, {forwardRef} from 'react';
 import DatePicker from "react-datepicker";
 import {BsCalendarWeek, BsDash} from "react-icons/bs";
 import "react-datepicker/dist/react-datepicker.css";
+import {ko} from 'date-fns/esm/locale';
 
 
 type Props = {
@@ -24,6 +25,7 @@ function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDat
         <section className='flex items-center mx-3 text-xl text-[var(--color-gray-dark-3)]'>
             <span className='fc mx-1.5'>
                 <DatePicker
+                    locale={ko}
                     selected={startDate}
                     onChange={onChangeStartDate}
                     customInput={<CustomDatePickerInput/>}
@@ -32,6 +34,7 @@ function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDat
             <BsDash/>
             <span className='fc mx-1.5'>
                 <DatePicker
+                    locale={ko}
                     selected={endDate}
                     onChange={onChangeEndDate}
                     customInput={<CustomDatePickerInput/>}
