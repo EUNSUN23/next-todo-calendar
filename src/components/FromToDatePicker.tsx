@@ -26,6 +26,8 @@ function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDat
             <span className='fc mx-1.5'>
                 <DatePicker
                     locale={ko}
+                    dateFormat="yyyy-MM-dd"
+                    maxDate={endDate}
                     selected={startDate}
                     onChange={onChangeStartDate}
                     customInput={<CustomDatePickerInput/>}
@@ -35,6 +37,8 @@ function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDat
             <span className='fc mx-1.5'>
                 <DatePicker
                     locale={ko}
+                    dateFormat="yyyy-MM-dd"
+                    minDate={startDate}
                     selected={endDate}
                     onChange={onChangeEndDate}
                     customInput={<CustomDatePickerInput/>}
