@@ -1,9 +1,10 @@
 'use client';
-import React, {forwardRef} from 'react';
+import React, {forwardRef, LegacyRef, ReactNode} from 'react';
 import DatePicker from "react-datepicker";
-import {BsCalendarWeek, BsDash} from "react-icons/bs";
+import {BsDash} from "react-icons/bs";
 import "react-datepicker/dist/react-datepicker.css";
 import {ko} from 'date-fns/esm/locale';
+
 
 
 type Props = {
@@ -13,14 +14,20 @@ type Props = {
     onChangeEndDate : (date:Date) => void;
 }
 
+type CustomInputProps = {
+    value?:Date | null;
+    onClick?: () => void | null;
+}
 
-const CustomDatePickerInput = forwardRef(({ value, onClick }, ref) => (
+// eslint-disable-next-line react/display-name
+const CustomDatePickerInput = forwardRef(({ value, onClick }:CustomInputProps, ref : LegacyRef<HTMLButtonElement>) => (
     <button className="fc-button fc-button-primary" onClick={onClick} ref={ref}>
-        {value}
+        {value as ReactNode}
     </button>
 ));
 
 function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDate}:Props) {
+
     return (
         <section className='flex items-center mx-3 text-xl text-[var(--color-gray-dark-3)]'>
             <span className='fc mx-1.5'>
@@ -30,7 +37,7 @@ function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDat
                     maxDate={endDate}
                     selected={startDate}
                     onChange={onChangeStartDate}
-                    customInput={<CustomDatePickerInput/>}
+                    customInput={<CustomDatePickerInput />}
                 />
             </span>
             <BsDash/>

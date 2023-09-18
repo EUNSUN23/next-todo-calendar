@@ -6,7 +6,7 @@ import {useCurrentTask} from "@/context/CurrentTaskContext";
 
 
 function TaskView() {
-    const {isOpen} = useCurrentTask();
+    const {isOpen} = useCurrentTask()!;
 
     return (
         <section className={`${isOpen} ? 'basis-[230px]'`}>

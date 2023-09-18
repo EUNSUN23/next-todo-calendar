@@ -5,19 +5,15 @@ import {FiCheckSquare} from "react-icons/fi";
 type Props = {
     id:string;
 }
-function CheckSquare({ id}:Props) {
+function CheckSquare({id}:Props) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [checked, setChecked] = useState(false);
 
-    function onClickCheckSquare({target:{id}}){
-        setChecked((checked) => !checked);
-        // todo - 데이터베이스에 해당 id의 todo상태(완/미완) 저장
-        console.log("checked/unchecked id: ", id);
-    }
 
     const iconColor = checked ? 'text-[var(--color-gray-dark)]':'text-gray-400';
 
     return (
-        <FiCheckSquare onClick={onClickCheckSquare} id={id} className={`${iconColor} cursor-pointer`} />
+        <FiCheckSquare id={id} className={`${iconColor} cursor-pointer`} />
     );
 }
 

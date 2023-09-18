@@ -3,18 +3,30 @@ import React from 'react';
 import {Task} from "@/utils/types";
 import CheckSquare from "@/components/CheckSquare";
 import Badge from "@/components/Badge";
-import {useCurrentTask} from "@/context/CurrentTaskContext";
+import {CurrentTaskContextValue, useCurrentTask} from "@/context/CurrentTaskContext";
 
 type Props = {
-    task:Task;
+    task: Task;
 }
-function TodoItem({task}:Props) {
-    const {openCurrentTask, closeCurrentTask, isOpen} = useCurrentTask();
-    console.log("task: ",task);
+
+function TodoItem({task}: Props) {
+    const {
+        openCurrentTask,
+        closeCurrentTask,
+        isOpen
+    }:CurrentTaskContextValue = useCurrentTask()!;
+    console.log("task: ", task);
+
     // todo - description클릭시 task 상세 페이지 open..
+
+    function onClickTodoItemHandler() {
+        if (isOpen) closeCurrentTask();
+        else openCurrentTask(task._id);
+    }
+
     return (
         <li className='flex justify-center space-x-4 text-2xl text-[var(--color-gray-dark)] font-semibold'>
-              <span className='flex pointer' onClick={() => isOpen ? closeCurrentTask() : openCurrentTask(task._id)}>
+              <span className='flex pointer' onClick={onClickTodoItemHandler}>
                   <CheckSquare id='todo1'/>
                   <span>{task.description}</span>
               </span>

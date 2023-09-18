@@ -9,7 +9,7 @@ export default function Calendar() {
 
     // const queryClient = useQueryClient();
 
-    const {tasks, isLoading, error} = useTasks();
+    const {tasks, isLoading} = useTasks();
     if(isLoading) return <h3>loading</h3>
 
     return (
@@ -28,9 +28,8 @@ export default function Calendar() {
                     selectable={true}
                     selectMirror={true}
                     navLinks={true}
-                    navLinkDayClick={(date, jsEvent) => {
+                    navLinkDayClick={(date) => {
                         console.log('day', date.toISOString());
-                        console.log('coords', jsEvent.pageX, jsEvent.pageY);
                     }}
                     events={tasks}
                 />

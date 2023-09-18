@@ -5,14 +5,19 @@ import {useTask} from "@/hooks/useTask";
 import {useEditTask} from "@/hooks/useEditTask";
 import {formatDateToStr} from "@/utils/common";
 import {DateFormat} from "@/utils/constant";
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 type Props = {
     currentTaskId: string;
 }
 
 function TaskDetailView({currentTaskId}: Props) {
-    const {task, isLoading, error} = useTask(currentTaskId);
+    const {task, isLoading} = useTask(currentTaskId);
     const {isEditing, editTaskById} = useEditTask();
+
+    console.log("isEditing: ", isEditing);
 
     if (isLoading) return <div>loading...</div>; // todo - loader 추가
     // todo react-query로 taskId에 맞는 task 가져오기.
@@ -29,6 +34,7 @@ function TaskDetailView({currentTaskId}: Props) {
     // currentTask.notes // notes목록 (contents:내용, groupId:속한 taskid, id: 고유id (groupId + 자기id), createdBy, updatedDate
     // currentTask.createdBy
     function onChangeStartDateHandler(date: Date) {
+        console.log("date: ", Date);
         if (confirm("시작 날짜를 수정하시겠습니까?")) {
             editTaskById({...task, start: formatDateToStr(date, DateFormat.YMD_DASH)});
         }
@@ -45,17 +51,20 @@ function TaskDetailView({currentTaskId}: Props) {
         <section className='w-full border-1 border-black p-3'>
             <section className='w-full flex'>
                 <span className='text-3xl font-semibold text-[var(--color-gray-dark-3)]'>{task.description}</span>
-                {
-                    isEditing ?
-                    <div>editing...</div>
-                    : <FromToDatePicker
-                        startDate={new Date(task.start)}
-                        endDate={new Date(task.end)}
-                        onChangeStartDate={onChangeStartDateHandler}
-                        onChangeEndDate={onChangeEndDateHandler}
-                    />
-                }
+                <FromToDatePicker
+                    startDate={new Date(task.start)}
+                    endDate={new Date(task.end)}
+                    onChangeStartDate={onChangeStartDateHandler}
+                    onChangeEndDate={onChangeEndDateHandler}
+                />
             </section>
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                closeOnClick
+                rtl={false}
+                theme='light'
+            />
         </section>
     );
 }

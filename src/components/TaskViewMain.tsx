@@ -5,7 +5,7 @@ import {useTasks} from "@/hooks/useTasks";
 
 function TaskViewMain() {
 
-    const {tasks, isLoading, error} = useTasks();
+    const {tasks, isLoading} = useTasks();
     if(isLoading) return <h3>loading</h3> // todo loading bar 추가
 
     return (

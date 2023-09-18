@@ -61,7 +61,9 @@ export async function getTasks(){
 }
 
 export async function editTaskById(requestVo:TaskEditRequestVo){
-    return  await client.patch(requestVo._id) // Document ID to patch
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return  await client.patch(requestVo.id) // Document ID to patch
         .set(requestVo) // Shallow merge
         .commit(); // Perform the patch and return a promise
         // .then((updatedBike) => {
