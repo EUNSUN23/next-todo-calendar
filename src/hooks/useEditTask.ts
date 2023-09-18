@@ -9,13 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 export function useEditTask() {
     const queryClient = useQueryClient();
 
-    // const editToastId = useRef('');
-    //     if (isEditing) {
-    //         editToastId.current = toast.loading("Task를 수정중입니다.") as string;
-    //     } else {
-    //         toast.dismiss(editToastId.current);
-    //     }
-
     const editToastId = useRef('');
 
     const {isLoading: isEditing, mutate: editTaskById, error} = useMutation({
@@ -31,9 +24,6 @@ export function useEditTask() {
             toast.dismiss(editToastId.current);
         },
         onError: err => {
-            console.error(err.message)
-            // toast.dismiss(editToastId.current);
-            // editToastId.current = '';
             toast.error("Task 수정 중 오류가 발생했습니다.", {autoClose:false, hideProgressBar:true, transition:Zoom, theme:'light'});
             toast.dismiss(editToastId.current);
         }
