@@ -28,26 +28,33 @@ function TaskDetailView({currentTaskId}: Props) {
     // currentTask.todos // todo목록 (contents:내용, finish, groupId:속한 taskid, id: 고유id (groupId + 자기id), createdBy, updatedDate, assignee
     // currentTask.notes // notes목록 (contents:내용, groupId:속한 taskid, id: 고유id (groupId + 자기id), createdBy, updatedDate
     // currentTask.createdBy
-    function onChangeStartDateHandler(date:Date) {
-        console.log("start value::: ",date);
-        editTaskById({...task, start: formatDateToStr(date, DateFormat.YMD_DASH)});
+    function onChangeStartDateHandler(date: Date) {
+        if (confirm("시작 날짜를 수정하시겠습니까?")) {
+            editTaskById({...task, start: formatDateToStr(date, DateFormat.YMD_DASH)});
+        }
+
     }
 
-    function onChangeEndDateHandler(date:Date){
-        console.log("end value::: ",date);
-        editTaskById({...task, end: formatDateToStr(date, DateFormat.YMD_DASH)});
+    function onChangeEndDateHandler(date: Date) {
+        if (confirm("종료 날짜를 수정하시겠습니까?")) {
+            editTaskById({...task, end: formatDateToStr(date, DateFormat.YMD_DASH)});
+        }
     }
 
     return (
         <section className='w-full border-1 border-black p-3'>
             <section className='w-full flex'>
                 <span className='text-3xl font-semibold text-[var(--color-gray-dark-3)]'>{task.description}</span>
-                <FromToDatePicker
-                    startDate={new Date(task.start)}
-                    endDate={new Date(task.end)}
-                    onChangeStartDate={onChangeStartDateHandler}
-                    onChangeEndDate={onChangeEndDateHandler}
-                />
+                {
+                    isEditing ?
+                    <div>editing...</div>
+                    : <FromToDatePicker
+                        startDate={new Date(task.start)}
+                        endDate={new Date(task.end)}
+                        onChangeStartDate={onChangeStartDateHandler}
+                        onChangeEndDate={onChangeEndDateHandler}
+                    />
+                }
             </section>
         </section>
     );
