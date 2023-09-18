@@ -7,6 +7,7 @@ import {formatDateToStr} from "@/utils/common";
 import {DateFormat} from "@/utils/constant";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Avatar from "@/components/Avatar";
 
 
 type Props = {
@@ -48,8 +49,9 @@ function TaskDetailView({currentTaskId}: Props) {
     }
 
     return (
-        <section className='w-full border-1 border-black p-3'>
-            <section className='w-full flex'>
+        <section className='w-full border border-black p-3'>
+            {/* STRT : description & start/end date */}
+            <section className='w-full flex border border-black mb-5'>
                 <span className='text-3xl font-semibold text-[var(--color-gray-dark-3)]'>{task.description}</span>
                 <FromToDatePicker
                     startDate={new Date(task.start)}
@@ -58,6 +60,24 @@ function TaskDetailView({currentTaskId}: Props) {
                     onChangeEndDate={onChangeEndDateHandler}
                 />
             </section>
+            {/* END : description & start/end date */}
+            {/* START :  작업 완료 & 남은 기간 현황 */}
+            <section className='w-full border border-black mb-5'>
+                <ul className='flex flex-col text-2xl font-semibold text-[var(--color-gray-dark-3)]'>
+                    <li className='flex'>생성 <Avatar size='md' user={task.createdBy!}/> <span className='text-xl font-semibold text-[var(--color-gray-dark-2)]'>2023-09-23</span></li>
+                    <li className='flex'>
+                        참여
+                        <ul className='flex -space-x-2 overflow-hidden'>
+                            <Avatar size='md' user={task.createdBy!}/>
+                            <Avatar size='md' user={task.createdBy!}/>
+                            <Avatar size='md' user={task.createdBy!}/>
+                            <Avatar size='md' user={task.createdBy!}/>
+                            <Avatar size='md' user={task.createdBy!}/>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
             <ToastContainer
                 position="top-center"
                 autoClose={3000}
