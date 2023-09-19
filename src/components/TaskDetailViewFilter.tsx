@@ -4,7 +4,7 @@ import {BiCaretDown} from "react-icons/bi";
 
 function TaskDetailViewFilter() {
     return (
-        <section className='flex space-x-4 py-4'> {/* 업무 contents */}
+        <section className='flex space-x-4'> {/* 업무 contents */}
             <div className='w-auto relative border border-[var(--color-gray-light-1)]'> {/* 필터 - depth_1 */}
                 <div className='flex space-x-1 items-center font-md px-2 py-1.5 cursor-pointer bg-[var(--color-neutral-light-1)]'> {/* 필터 1 타이틀 */}
                     <BsFilter/>
