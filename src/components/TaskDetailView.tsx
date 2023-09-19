@@ -8,6 +8,7 @@ import {DateFormat} from "@/utils/constant";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Avatar from "@/components/Avatar";
+import {BiCaretDown} from "react-icons/bi";
 
 
 type Props = {
@@ -49,26 +50,28 @@ function TaskDetailView({currentTaskId}: Props) {
     }
 
     return (
-        <section className='w-full border border-black p-3'>
+        <section className='flex flex-col space-y-10 w-full border border-black p-3'>
             {/* STRT : description & start/end date */}
-            <section className='w-full flex justify-between border border-black mb-5'>
-                <span className='text-5xl font-semibold text-[var(--color-gray-dark-3)]'>{task.description}</span>
+            <section className='w-full flex justify-between items-center border border-black'>
+                <span className='header-xl'>{task.description}</span>
                 <FromToDatePicker
                     startDate={new Date(task.start)}
                     endDate={new Date(task.end)}
                     onChangeStartDate={onChangeStartDateHandler}
                     onChangeEndDate={onChangeEndDateHandler}
-                />정
+                />
             </section>
             {/* END : description & start/end date */}
-            {/* START :  작업 완료 & 남은 기간 현황 */}
-            <section className='w-full border border-black mb-5'>
-                <ul className='flex flex-col text-3xl font-semibold text-[var(--color-gray-dark-3)]'>
-                    <li className='flex'>생성
+            {/* START :  생성 & 참여멤버 목록 */}
+            <section className='w-full border border-black'>
+                <ul className='flex flex-col space-y-4'>
+                    <li className='flex space-x-4'>
+                        <span className='header-md mx-2'>생성</span>
                         <Avatar size='lg' user={task.createdBy!}/>
-                        <span className='text-2xl font-semibold text-[var(--color-gray-dark-2)]'>, Updated at 2023-09-23</span></li>
-                    <li className='flex'>
-                        참여
+                        <span className='font-md-gray'>, Created at 2023-09-23</span>
+                    </li>
+                    <li className='flex space-x-4'>
+                        <span className='header-md mx-2'>참여</span>
                         <ul className='flex -space-x-2 overflow-hidden'>
                             <Avatar size='lg' user={task.createdBy!}/>
                             <Avatar size='lg' user={task.createdBy!}/>
@@ -79,7 +82,21 @@ function TaskDetailView({currentTaskId}: Props) {
                     </li>
                 </ul>
             </section>
+            {/* END :  생성 & 참여멤버 목록 */}
+            {/* START :  TO-DO & NOTE 목록 */}
+            <section className='w-full '>
+                <section className='flex space-x-4 items-center  border-b border-[var(--color-neutral)] pb-2'> {/*header 및 filter */}
+                    <span className='header-lg mr-8 mx-2'>업무</span>
+                    <div> {/* 필터 */}
+                        <div className='flex space-x-1 items-center font-md cursor-pointer'>
+                            <span>전체</span>
+                            <BiCaretDown/>
+                        </div>
+                    </div>
 
+                </section>
+            </section>
+            {/* END :  TO-DO 목록 */}
             <ToastContainer
                 position="top-center"
                 autoClose={3000}
