@@ -142,3 +142,30 @@ __user-photo {
 
 }
 
+@layer base {
+    .header-2xl {
+        @apply text-5xl font-semibold text-[var(--color-gray-dark-3)]
+    }
+
+    .header-xl {
+        @apply text-[2.75rem] leading-10 font-semibold text-[var(--color-gray-dark-3)]
+    }
+
+    .header-lg {
+        @apply text-4xl font-semibold text-[var(--color-gray-dark-3)]
+    }
+
+    .header-md {
+        @apply text-3xl font-semibold text-[var(--color-gray-dark-3)]
+    }
+
+    .font-md-gray {
+        @apply text-2xl font-semibold text-[var(--color-gray-dark-2)]
+    }
+
+    .font-md {
+        @apply text-2xl font-semibold text-[var(--color-gray-dark-3)]
+    }
+
+}
+
