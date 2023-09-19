@@ -9,7 +9,8 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Avatar from "@/components/Avatar";
 import {BiCaretDown} from "react-icons/bi";
-
+import {BsFilter} from "react-icons/bs";
+import TaskDetailViewFilter from "@/components/TaskDetailViewFilter";
 
 type Props = {
     currentTaskId: string;
@@ -84,17 +85,9 @@ function TaskDetailView({currentTaskId}: Props) {
             </section>
             {/* END :  생성 & 참여멤버 목록 */}
             {/* START :  TO-DO & NOTE 목록 */}
-            <section className='w-full '>
-                <section className='flex space-x-4 items-center  border-b border-[var(--color-neutral)] pb-2'> {/*header 및 filter */}
-                    <span className='header-lg mr-8 mx-2'>업무</span>
-                    <div> {/* 필터 */}
-                        <div className='flex space-x-1 items-center font-md cursor-pointer'>
-                            <span>전체</span>
-                            <BiCaretDown/>
-                        </div>
-                    </div>
-
-                </section>
+            <section className='w-full'>
+                <div className='header-lg mx-2 items-center border-b border-[var(--color-neutral)] pb-2'>업무</div>
+                <TaskDetailViewFilter/>
             </section>
             {/* END :  TO-DO 목록 */}
             <ToastContainer
