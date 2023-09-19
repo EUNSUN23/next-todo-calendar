@@ -8,8 +8,6 @@ import {DateFormat} from "@/utils/constant";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Avatar from "@/components/Avatar";
-import {BiCaretDown} from "react-icons/bi";
-import {BsFilter} from "react-icons/bs";
 import TaskDetailViewFilter from "@/components/TaskDetailViewFilter";
 
 type Props = {
