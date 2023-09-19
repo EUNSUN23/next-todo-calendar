@@ -9,7 +9,7 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Avatar from "@/components/Avatar";
 import TaskDetailViewFilter from "@/components/TaskDetailViewFilter";
-import {RiAddLine} from "react-icons/ri";
+import AddTodoButton from "@/components/AddTodoButton";
 
 type Props = {
     currentTaskId: string;
@@ -88,10 +88,7 @@ function TaskDetailView({currentTaskId}: Props) {
                 <div className='header-lg mx-2 items-center border-b border-[var(--color-neutral)] pb-2'>업무</div> {/* 업무 header */}
                 <TaskDetailViewFilter/>
                 <section className='flex-col pl-4'>  {/* 업무 contents */}
-                    <button className='w-full flex items-center space-x-1 p-2 text-3xl text-[var(--color-neutral-dark)] hover:bg-[var(--color-neutral-light-1)] hover:border hover:border-[var(--color-neutral-light-1)] hover:rounded hover:m-[-1px]'>
-                        <RiAddLine />
-                        <span>업무 목록 추가</span>
-                    </button>
+                    <AddTodoButton/>
 
 
                 </section>
