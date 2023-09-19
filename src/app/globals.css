@@ -31,7 +31,9 @@
     --color-primary-light: #5A63B9;
     --color-primary-dark: #201A43;
     --color-neutral: #C1BDC4;
-    --color-neutral-light: #E6EAF0;
+    --color-neutral-light-1: #EEF1F5;
+    --color-neutral-light-2: #EAEEF3;
+    --color-neutral-light-3: #E6EAF0;
     --color-neutral-dark: #676767;
 
     --color-common: #2998ff;
@@ -130,7 +132,7 @@ __user-photo {
         font-normal
         leading-relaxed
         text-[var(--color-gray-dark-2)]
-        bg-[var(--color-neutral-light)]
+        bg-[var(--color-neutral-light-3)]
         /*bg-gradient-to-b from-[var(--color-gray-light-1)] to-[var(--color-neutral-light)] bg-cover bg-no-repeat*/
         min-h-screen
     }
@@ -165,6 +167,10 @@ __user-photo {
 
     .font-md {
         @apply text-2xl font-semibold text-[var(--color-gray-dark-3)]
+    }
+
+    .font-md-400 {
+        @apply text-2xl font-normal text-[var(--color-gray-dark-3)]
     }
 
 }
