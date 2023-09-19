@@ -51,28 +51,30 @@ function TaskDetailView({currentTaskId}: Props) {
     return (
         <section className='w-full border border-black p-3'>
             {/* STRT : description & start/end date */}
-            <section className='w-full flex border border-black mb-5'>
-                <span className='text-3xl font-semibold text-[var(--color-gray-dark-3)]'>{task.description}</span>
+            <section className='w-full flex justify-between border border-black mb-5'>
+                <span className='text-5xl font-semibold text-[var(--color-gray-dark-3)]'>{task.description}</span>
                 <FromToDatePicker
                     startDate={new Date(task.start)}
                     endDate={new Date(task.end)}
                     onChangeStartDate={onChangeStartDateHandler}
                     onChangeEndDate={onChangeEndDateHandler}
-                />
+                />정
             </section>
             {/* END : description & start/end date */}
             {/* START :  작업 완료 & 남은 기간 현황 */}
             <section className='w-full border border-black mb-5'>
-                <ul className='flex flex-col text-2xl font-semibold text-[var(--color-gray-dark-3)]'>
-                    <li className='flex'>생성 <Avatar size='md' user={task.createdBy!}/> <span className='text-xl font-semibold text-[var(--color-gray-dark-2)]'>2023-09-23</span></li>
+                <ul className='flex flex-col text-3xl font-semibold text-[var(--color-gray-dark-3)]'>
+                    <li className='flex'>생성
+                        <Avatar size='lg' user={task.createdBy!}/>
+                        <span className='text-2xl font-semibold text-[var(--color-gray-dark-2)]'>, Updated at 2023-09-23</span></li>
                     <li className='flex'>
                         참여
                         <ul className='flex -space-x-2 overflow-hidden'>
-                            <Avatar size='md' user={task.createdBy!}/>
-                            <Avatar size='md' user={task.createdBy!}/>
-                            <Avatar size='md' user={task.createdBy!}/>
-                            <Avatar size='md' user={task.createdBy!}/>
-                            <Avatar size='md' user={task.createdBy!}/>
+                            <Avatar size='lg' user={task.createdBy!}/>
+                            <Avatar size='lg' user={task.createdBy!}/>
+                            <Avatar size='lg' user={task.createdBy!}/>
+                            <Avatar size='lg' user={task.createdBy!}/>
+                            <Avatar size='lg' user={task.createdBy!}/>
                         </ul>
                     </li>
                 </ul>
