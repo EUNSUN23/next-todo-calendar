@@ -10,7 +10,7 @@ function TaskDetailViewFilter() {
     return (
         <section className='flex space-x-4 '>
             <div className='w-auto relative'> {/* 필터 - depth_1 */}
-                <div className='flex space-x-1 items-center font-md px-2 py-1.5 cursor-pointer hover:border hover:border-[var(--color-gray-light-1)] hover:bg-[var(--color-neutral-light-1)] hover:m-[-1px]'> {/* 필터 1 타이틀 */}
+                <div className='flex space-x-1 items-center font-md py-1.5 cursor-pointer'> {/* 필터 1 타이틀 */}
                     <BsFilter/>
                     <span>전체</span>
                     <BiCaretDown className='hidden'/>
