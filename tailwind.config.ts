@@ -33,6 +33,71 @@ const config: Config = {
                     }
                 }
             })
+           addComponents({
+                '.checkbox': {
+                    position: 'relative',
+                    'input,svg': {
+                        width: '21px',
+                        height: '21px',
+                        display: 'block'
+                    },
+                    'input': {
+                        '-webkit-appearance': 'none',
+                        '-moz-appearance': 'none',
+                        position: 'relative;',
+                        outline: 'none;',
+                        backgroundColor: '#fff',
+                        border: 'none',
+                        margin: '0',
+                        padding: '0',
+                        cursor: 'pointer',
+                        borderRadius: '4px',
+                        boxShadow: 'inset 0 0 0 1px #D1D6EE',
+                        '&:hover': {
+                            boxShadow: 'inset 0 0 0 2px, #BBC1E1'
+                        },
+                        '&:checked': {
+                            boxShadow: 'inset 0 0 0 2px #1E2235'
+                        },
+                        '&:disabled':{
+                            boxShadow:'inset 0 0 0 2px #999',
+                            '& + svg':{
+                                stroke:'#999',
+                                'stroke-dasharray': '16.1 86.12',
+                                'stroke-dashoffset': '102.22'
+                            }
+                        }
+                    },
+                    'svg': {
+                        pointerEvents: 'none',
+                        fill: 'none',
+                        'stroke-width': '2px',
+                        'stroke-linecap': 'round',
+                        'stroke-linejoin': 'round',
+                        stroke: '#1E2235',
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                        width: '21px',
+                        height: '21px'
+                    },
+                    '&.path': {
+                        'input': {
+                            '&:checked': {
+                                '& + svg': {
+                                    'stroke-dasharray': '16.1 86.12',
+                                    'stroke-dashoffset': '102.22'
+                                }
+                            }
+                        },
+                        'svg': {
+                            'stroke-dasharray': '86.12',
+                            'stroke-dashoffset': '86.12',
+                        }
+                    }
+
+                }
+            })
         })
     ],
 }
