@@ -89,7 +89,7 @@ function TaskDetailView({currentTaskId}: Props) {
             <section className='w-full flex-col space-y-4 '>
                 <div className='header-lg mx-2 items-center border-b border-[var(--color-neutral)] pb-2'>업무</div>
                 {/* 업무 header */}
-                <section className='flex-col px-2'>  {/* 업무 contents */}
+                <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
                     <TaskDetailViewFilter/>
                     <div className='pl-16 relative'>
                         <div className='w-full text-3xl text-[var(--color-neutral-dark)]'>
