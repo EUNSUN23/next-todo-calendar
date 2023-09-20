@@ -61,6 +61,7 @@ const config: Config = {
                         },
                         '&:disabled':{
                             boxShadow:'inset 0 0 0 2px #999',
+                            cursor:'default',
                             '& + svg':{
                                 stroke:'#999',
                                 'stroke-dasharray': '16.1 86.12',
