@@ -2,7 +2,7 @@
 import React from 'react';
 import TaskView from "@/components/TaskView";
 import {useCurrentTask} from "@/context/CurrentTaskContext";
-import TaskDetailView from "@/components/TaskDetailView";
+import TaskDetailView from "@/components/taskDetailView/TaskDetailView";
 
 
 function TaskSection() {

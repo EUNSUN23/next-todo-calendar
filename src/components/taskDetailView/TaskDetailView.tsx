@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import FromToDatePicker from "@/components/FromToDatePicker";
+import FromToDatePicker from "@/components/taskDetailView/FromToDatePicker";
 import {useTask} from "@/hooks/useTask";
 import {useEditTask} from "@/hooks/useEditTask";
 import {formatDateToStr} from "@/utils/common";
@@ -8,8 +8,8 @@ import {DateFormat} from "@/utils/constant";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Avatar from "@/components/Avatar";
-import TaskDetailViewFilter from "@/components/TaskDetailViewFilter";
-import AddTodoButton from "@/components/AddTodoButton";
+import TaskTodoFilter from "@/components/taskDetailView/TaskTodoFilter";
+import AddTaskTodoButton from "@/components/taskDetailView/AddTaskTodoButton";
 import {PiDotsSixVerticalBold} from "react-icons/pi";
 import {IoMdAdd} from "react-icons/io";
 
@@ -90,11 +90,8 @@ function TaskDetailView({currentTaskId}: Props) {
                 <div className='header-lg mx-2 items-center border-b border-[var(--color-neutral)] pb-2'>업무</div>
                 {/* 업무 header */}
                 <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
-                    <TaskDetailViewFilter/>
+                    <TaskTodoFilter/>
                     <div className='pl-16 relative'>
-                        <div className='w-full text-3xl text-[var(--color-neutral-dark)]'>
-                            <input type="text" placeholder='업무 입력' className='outline-none py-2 px-3'/>
-                        </div>
                         <div
                             className='absolute top-1/2 translate-y-[-50%] left-0 flex text-3xl text-[var(--color-neutral-dark)] '>
                             <button className='hover-neutral-light-1'>
@@ -104,9 +101,12 @@ function TaskDetailView({currentTaskId}: Props) {
                                 <PiDotsSixVerticalBold/>
                             </button>
                         </div>
+                        <div className='w-full text-3xl text-[var(--color-neutral-dark)]'>
+                            <input type="text" placeholder='업무 입력' className='outline-none py-2 px-3'/>
+                        </div>
                     </div>
                     <div className='pl-16'>
-                        <AddTodoButton/>
+                        <AddTaskTodoButton/>
                     </div>
 
                 </section>

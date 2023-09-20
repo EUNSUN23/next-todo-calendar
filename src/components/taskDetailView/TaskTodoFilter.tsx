@@ -6,7 +6,7 @@ import {BiCaretDown} from "react-icons/bi";
 // TODO 2 - 필터 hover시 down arrow 보이게 하기
 // TODO 3 - 필터 클릭시 옵션 보이게 하기 + animation
 // TODO 4 - depth1 옵션에서 '참여자' 클릭시 옆에 참여자 select show (+ 참여자 명단 가져오기)
-function TaskDetailViewFilter() {
+function TaskTodoFilter() {
     return (
         <section className='flex space-x-4 '>
             <div className='w-auto relative'> {/* 필터 - depth_1 */}
@@ -38,4 +38,4 @@ function TaskDetailViewFilter() {
     );
 }
 
-export default TaskDetailViewFilter;
+export default TaskTodoFilter;

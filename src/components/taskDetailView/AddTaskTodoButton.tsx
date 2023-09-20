@@ -1,7 +1,7 @@
 import React from 'react';
 import {RiAddLine} from "react-icons/ri";
 
-function AddTodoButton() {
+function AddTaskTodoButton() {
     return (
         <button className='w-full flex items-center space-x-1 py-2 px-1 text-[1.65rem] leading-[2.15rem] text-[var(--color-neutral-dark)] hover-neutral-light-1'>
             <RiAddLine />
@@ -10,4 +10,4 @@ function AddTodoButton() {
     );
 }
 
-export default AddTodoButton;
+export default AddTaskTodoButton;
