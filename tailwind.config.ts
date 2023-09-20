@@ -18,18 +18,18 @@ const config: Config = {
         require('tailwindcss/nesting'),
         require('tailwindcss'),
         require('autoprefixer'),
-        plugin(function ({addComponents}){
-            addComponents({
-                '.hover-neutral-light-1':{
-                    border:'1px solid white',
-                    borderRadius:'0.25rem',
-                    '&:hover':{
-                        border:'1px solid #EEF1F5',
-                        borderRadius:'0.25rem',
-                        backgroundColor:'#EEF1F5',
+        plugin(function ({addUtilities, addComponents}) {
+            addUtilities({
+                '.hover-neutral-light-1': {
+                    border: '1px solid white',
+                    borderRadius: '0.25rem',
+                    '&:hover': {
+                        border: '1px solid #EEF1F5',
+                        borderRadius: '0.25rem',
+                        backgroundColor: '#EEF1F5',
                         transitionTimingFunction: 'transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)',
-                        transitionDuration:'120ms',
-                        transitionProperty:'background-color'
+                        transitionDuration: '120ms',
+                        transitionProperty: 'background-color'
                     }
                 }
             })
