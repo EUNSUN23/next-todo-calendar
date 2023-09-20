@@ -10,8 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Avatar from "@/components/Avatar";
 import TaskTodoFilter from "@/components/taskDetailView/TaskTodoFilter";
 import AddTaskTodoButton from "@/components/taskDetailView/AddTaskTodoButton";
-import {PiDotsSixVerticalBold} from "react-icons/pi";
-import {IoMdAdd} from "react-icons/io";
+import AddTaskTodoForm from "@/components/taskDetailView/AddTaskTodoForm";
 
 type Props = {
     currentTaskId: string;
@@ -91,24 +90,8 @@ function TaskDetailView({currentTaskId}: Props) {
                 {/* 업무 header */}
                 <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
                     <TaskTodoFilter/>
-                    <div className='pl-16 relative'>
-                        <div
-                            className='absolute top-1/2 translate-y-[-50%] left-0 flex text-3xl text-[var(--color-neutral-dark)] '>
-                            <button className='hover-neutral-light-1'>
-                                <IoMdAdd/>
-                            </button>
-                            <button className='hover-neutral-light-1'>
-                                <PiDotsSixVerticalBold/>
-                            </button>
-                        </div>
-                        <div className='w-full text-3xl text-[var(--color-neutral-dark)]'>
-                            <input type="text" placeholder='업무 입력' className='outline-none py-2 px-3'/>
-                        </div>
-                    </div>
-                    <div className='pl-16'>
-                        <AddTaskTodoButton/>
-                    </div>
-
+                    <AddTaskTodoForm/>
+                    <AddTaskTodoButton/>
                 </section>
             </section>
             {/* END :  TO-DO 목록 */}
