@@ -87,16 +87,18 @@ function TaskDetailView({currentTaskId}: Props) {
             {/* END :  생성 & 참여멤버 목록 */}
             {/* START :  TO-DO & NOTE 목록 */}
             <section className='w-full flex-col space-y-4 '>
-                <div className='header-lg mx-2 items-center border-b border-[var(--color-neutral)] pb-2'>업무</div> {/* 업무 header */}
+                <div className='header-lg mx-2 items-center border-b border-[var(--color-neutral)] pb-2'>업무</div>
+                {/* 업무 header */}
                 <section className='flex-col px-2'>  {/* 업무 contents */}
-                <TaskDetailViewFilter/>
+                    <TaskDetailViewFilter/>
                     <div className='pl-16 relative'>
                         <div className='w-full text-3xl text-[var(--color-neutral-dark)]'>
                             <input type="text" placeholder='업무 입력' className='outline-none py-2 px-3'/>
                         </div>
-                        <div className='absolute top-1/2 translate-y-[-50%] left-0 flex text-3xl text-[var(--color-neutral-dark)] '>
+                        <div
+                            className='absolute top-1/2 translate-y-[-50%] left-0 flex text-3xl text-[var(--color-neutral-dark)] '>
                             <button className='hover-neutral-light-1'>
-                                <IoMdAdd />
+                                <IoMdAdd/>
                             </button>
                             <button className='hover-neutral-light-1'>
                                 <PiDotsSixVerticalBold/>
