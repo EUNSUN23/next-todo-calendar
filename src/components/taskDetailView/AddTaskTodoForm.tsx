@@ -1,6 +1,16 @@
 import React from 'react';
 import {IoMdAdd} from "react-icons/io";
 import {PiDotsSixVerticalBold} from "react-icons/pi";
+import CheckBox from "@/components/ui/CheckBox";
+
+// TODO 1. 체크박스 아이콘 넣기 (초기상태)
+// TODO 1-1. input 창으로 보기 아이콘 넣기 & hover시에만 보이게
+// TODO 1-2. dot 클릭시 다음 항목 나오게 하기 - 삭제, todo 할당하기, 타입 변경(todo <-> note 아이콘으로.)
+// TODO 2. + 클릭시 sub 업무/note form 생성
+// TODO 3. form에 hover된 상태에서만 +, dot 보이도록 하기
+// TODO 4. 처음 상태는 input에 focus 된채로, focus 사라지면 그대로 현재 Task의 todo에 추가. (제목 없으면 '제목 없음' 으로)
+// TODO 5. 현재 task에 todo 생성(currentTaskId이용) 로직 - groupId(currTaskid), contents(not require), createdBy, updateDate, assignee(user)
+// TODO 6. 수정후에는 마우스 hover시
 
 function AddTaskTodoForm() {
     return (
@@ -14,8 +24,9 @@ function AddTaskTodoForm() {
                     <PiDotsSixVerticalBold/>
                 </button>
             </div>
-            <div className='w-full text-3xl text-[var(--color-neutral-dark)]'>
-                <input type="text" placeholder='업무 입력' className='outline-none py-2 px-3'/>
+            <div className='w-full text-3xl flex items-center mx-2'>
+                <CheckBox onChangeHandler={(e) =>  console.log(e.target)}/>
+                <input type="text" placeholder='업무 입력' className='outline-none py-2 px-3  text-[var(--color-neutral-dark)]'/>
             </div>
         </div>
     );
