@@ -75,27 +75,17 @@ const config: Config = {
                         'stroke-width': '2px',
                         'stroke-linecap': 'round',
                         'stroke-linejoin': 'round',
-                        stroke: '#1E2235',
+                        stroke:'#999',
                         position: 'absolute',
                         top: '0',
                         left: '0',
                         width: '21px',
-                        height: '21px'
-                    },
-                    '&.path': {
-                        'input': {
-                            '&:checked': {
-                                '& + svg': {
-                                    'stroke-dasharray': '16.1 86.12',
-                                    'stroke-dashoffset': '102.22'
-                                }
-                            }
-                        },
-                        'svg': {
-                            'stroke-dasharray': '86.12',
-                            'stroke-dashoffset': '86.12',
-                        }
+                        height: '21px',
+                        'stroke-dasharray': '16.1 86.12',
+                        'stroke-dashoffset': '102.22'
                     }
+
+                },
 
                 }
             })
