@@ -1,9 +1,9 @@
 import React from 'react';
 import {IoMdAdd} from "react-icons/io";
 import {PiDotsSixVerticalBold} from "react-icons/pi";
-import CheckBox from "@/components/ui/CheckBox";
+import CustomCheckbox from "@/components/ui/CustomCheckbox";
+import CustomInput from "@/components/ui/CustomInput";
 
-// TODO 1. 체크박스 아이콘 넣기 (초기상태)
 // TODO 1-1. input 창으로 보기 아이콘 넣기 & hover시에만 보이게
 // TODO 1-2. dot 클릭시 다음 항목 나오게 하기 - 삭제, todo 할당하기, 타입 변경(todo <-> note 아이콘으로.)
 // TODO 2. + 클릭시 sub 업무/note form 생성
@@ -25,8 +25,8 @@ function AddTaskTodoForm() {
                 </button>
             </div>
             <div className='w-full text-3xl flex items-center mx-2'>
-                <CheckBox onChangeHandler={(e) =>  console.log(e.target)}/>
-                <input type="text" placeholder='업무 입력' className='outline-none py-2 px-3  text-[var(--color-neutral-dark)]'/>
+                <CustomCheckbox onChangeHandler={(e) => console.log(e.target)}/>
+                <CustomInput/>
             </div>
         </div>
     );
