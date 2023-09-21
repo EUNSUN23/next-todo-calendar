@@ -3,7 +3,7 @@ import React, {ChangeEventHandler} from 'react';
 type Props = {
     onChangeHandler: (e:Event) => void;
 }
-function CheckBox({onChangeHandler}:Props) {
+function CustomCheckbox({onChangeHandler}:Props) {
     return (
         <label className="checkbox path">
             <input type="checkbox" onChange={onChangeHandler as ChangeEventHandler} disabled={true}/>
@@ -15,4 +15,4 @@ function CheckBox({onChangeHandler}:Props) {
     );
 }
 
-export default CheckBox;
+export default CustomCheckbox;
