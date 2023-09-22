@@ -36,27 +36,7 @@ function TaskDetailView({currentTaskId}: Props) {
     return (
         <section className='flex flex-col space-y-10 w-full border border-black p-3'>
             <TaskDetailViewHeader task={task}/>
-            {/* START :  생성 & 참여멤버 목록 */}
-            <section className='w-full border border-black'>
-                <ul className='flex flex-col space-y-4'>
-                    <li className='flex space-x-4'>
-                        <span className='header-md mx-2'>생성</span>
-                        <Avatar size='lg' user={task.createdBy!}/>
-                        <span className='font-md-gray'>, Created at 2023-09-23</span>
-                    </li>
-                    <li className='flex space-x-4'>
-                        <span className='header-md mx-2'>참여</span>
-                        <ul className='flex -space-x-2 overflow-hidden'>
-                            <Avatar size='lg' user={task.createdBy!}/>
-                            <Avatar size='lg' user={task.createdBy!}/>
-                            <Avatar size='lg' user={task.createdBy!}/>
-                            <Avatar size='lg' user={task.createdBy!}/>
-                            <Avatar size='lg' user={task.createdBy!}/>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-            {/* END :  생성 & 참여멤버 목록 */}
+            <TaskMember task={task}/>
             {/* START :  TO-DO & NOTE 목록 */}
             <section className='w-full flex-col space-y-4 '>
                 <div className='header-lg mx-2 items-center border-b border-neutral pb-2'>업무</div>
