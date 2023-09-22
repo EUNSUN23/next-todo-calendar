@@ -13,7 +13,7 @@ function TaskTodoFilter() {
                 <div className='flex space-x-1 items-center font-md py-1.5 cursor-pointer'> {/* 필터 1 타이틀 */}
                     <BsFilter/>
                     <span>전체</span>
-                    <BiCaretDown className='hidden'/>
+                    <BiCaretDown/>
                 </div>
                 <div className='hidden w-full text-center absolute top-full left-0 font-md-400 cursor-pointer bg-white border border-gray-light-1'> {/* 필터 1 옵션 */}
                     <div className='hover:bg-neutral-light-2'>전체</div>
