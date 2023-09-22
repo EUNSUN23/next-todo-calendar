@@ -1,6 +1,4 @@
-import React from 'react';
-import {IoMdAdd} from "react-icons/io";
-import {PiDotsSixVerticalBold} from "react-icons/pi";
+import React, {useState} from 'react';
 import CustomCheckbox from "@/components/ui/CustomCheckbox";
 import CustomInput from "@/components/ui/CustomInput";
 
@@ -12,7 +10,9 @@ import CustomInput from "@/components/ui/CustomInput";
 // TODO 5. 현재 task에 todo 생성(currentTaskId이용) 로직 - groupId(currTaskid), contents(not require), createdBy, updateDate, assignee(user)
 // TODO 6. 수정후에는 마우스 hover시
 
-function AddTaskTodoForm() {
+function TaskTodoAddForm() {
+    const [showTodoTool, setShowTodoTool] = useState(false);
+
     return (
         <div className='pl-16 relative' onMouseOver={() => setShowTodoTool(true)} onMouseLeave={() => setShowTodoTool(false)}>
             {
@@ -33,4 +33,4 @@ function AddTaskTodoForm() {
     );
 }
 
-export default AddTaskTodoForm;
+export default TaskTodoAddForm;
