@@ -13,14 +13,14 @@ function TaskDetailViewHeader({task}:Props) {
     function onChangeStartDateHandler(date: Date) {
         console.log("date: ", Date);
         if (confirm("시작 날짜를 수정하시겠습니까?")) {
-            editTaskById({...task, start: formatDateToStr(date, DateFormat.YMD_DASH)});
+            editTaskById({_id:task._id, key:'start', value: formatDateToStr(date, DateFormat.YMD_DASH)});
         }
 
     }
 
     function onChangeEndDateHandler(date: Date) {
         if (confirm("종료 날짜를 수정하시겠습니까?")) {
-            editTaskById({...task, end: formatDateToStr(date, DateFormat.YMD_DASH)});
+            editTaskById({_id:task._id, key:'end', value: formatDateToStr(date, DateFormat.YMD_DASH)});
         }
     }
 

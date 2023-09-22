@@ -15,7 +15,7 @@ const client = createClient({
  * groupId로 task 상세 조회
  * @param taskId
  */
-export async function getTaskById(taskId:string){
+export async function getTaskById(taskId: string) {
     const query = `*[_type == "task" && _id == "${taskId}"]{
         _id, groupId, description, start, end, level, finish,
         notes[]->, todos[]->, createdBy->
@@ -28,10 +28,10 @@ export async function getTaskById(taskId:string){
 /**
  * 이번달 task 목록 조회
  */
-export async function getTasks(){
-     const date = new Date();
-     const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-     const endDate = formatDateToStr(lastDayOfMonth, DateFormat.YMD_DASH);
+export async function getTasks() {
+    const date = new Date();
+    const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    const endDate = formatDateToStr(lastDayOfMonth, DateFormat.YMD_DASH);
 
     const query = `*[_type == "task" && start <= "${endDate} && !finish"]{
         _id, groupId, description, start, end, level, finish
@@ -40,9 +40,9 @@ export async function getTasks(){
 
     // 데이터 가공
     // const data = await res.json();
-    for(const task of res){
+    for (const task of res) {
         task.title = task.description;
-        switch(task.level){
+        switch (task.level) {
             case '1':
                 task.color = '#ffb900';
                 break;
@@ -60,9 +60,9 @@ export async function getTasks(){
     return res;
 }
 
-export async function editTaskById(requestVo:TaskEditRequestVo){
-    return  await client.patch(requestVo._id) // Document ID to patch
-        .set(requestVo) // Shallow merge
-        .commit(); // Perform the patch and return a promise
+export async function editTaskById(requestVo: TaskEditRequestVo) {
+    return await client.patch(requestVo._id) // Document ID to patch
+        .set({[requestVo.key]: requestVo.value}) // Shallow merge
+        .commit({autoGenerateArrayKeys: true}); // Perform the patch and return a promise
 }
 
