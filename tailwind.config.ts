@@ -6,11 +6,28 @@ const config: Config = {
     content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html", "./app/**/*.{js,jsx,ts,tsx}", "./index.html"],
     theme: {
         extend: {
+            colors:{
+                'gray-light-1': '#f7f7f7',
+                'gray-light-2': '#eee',
+                'gray-dark':'#777',
+                'gray-dark-2': '#999',
+                'gray-dark-3': '#333',
+                'neutral': '#C1BDC4',
+                'neutral-light-1': '#EEF1F5',
+                'neutral-light-2': '#EAEEF3',
+                'neutral-light-3': '#E6EAF0',
+                'neutral-dark': '#676767',
+                'common': '#2998ff',
+                'minor': '#ffb900',
+                'important': '#D22E1D',
+                'shadow-dark': '0 2rem 6rem rgba(0, 0, 0, .3)',
+                'shadow-light': '0 2rem 5rem rgba(0, 0, 0, .06)'
+            },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':
                     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-            },
+            }
         },
     },
     plugins: [
