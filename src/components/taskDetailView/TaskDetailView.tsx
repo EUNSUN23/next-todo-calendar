@@ -86,7 +86,7 @@ function TaskDetailView({currentTaskId}: Props) {
             {/* END :  생성 & 참여멤버 목록 */}
             {/* START :  TO-DO & NOTE 목록 */}
             <section className='w-full flex-col space-y-4 '>
-                <div className='header-lg mx-2 items-center border-b border-[var(--color-neutral)] pb-2'>업무</div>
+                <div className='header-lg mx-2 items-center border-b border-neutral pb-2'>업무</div>
                 {/* 업무 header */}
                 <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
                     <TaskTodoFilter/>

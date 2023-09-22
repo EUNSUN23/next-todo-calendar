@@ -29,7 +29,7 @@ const CustomDatePickerInput = forwardRef(({ value, onClick }:CustomInputProps, r
 function FromToDatePicker({startDate, endDate, onChangeStartDate, onChangeEndDate}:Props) {
 
     return (
-        <section className='flex items-center mx-3 text-xl text-[var(--color-gray-dark-3)]'>
+        <section className='flex items-center mx-3 text-xl text-gray-dark-3'>
             <span className='fc mx-1.5'>
                 <DatePicker
                     locale={ko}

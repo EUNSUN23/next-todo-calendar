@@ -14,16 +14,17 @@ import CustomInput from "@/components/ui/CustomInput";
 
 function AddTaskTodoForm() {
     return (
-        <div className='pl-16 relative'>
-            <div
-                className='absolute top-1/2 translate-y-[-50%] left-0 flex text-3xl text-[var(--color-neutral-dark)] '>
-                <button className='hover-neutral-light-1'>
-                    <IoMdAdd/>
-                </button>
-                <button className='hover-neutral-light-1'>
-                    <PiDotsSixVerticalBold/>
-                </button>
-            </div>
+        <div className='pl-16 relative' onMouseOver={() => setShowTodoTool(true)} onMouseLeave={() => setShowTodoTool(false)}>
+            {
+                showTodoTool ?
+                    <div
+                        className='absolute top-1/2 translate-y-[-50%] left-0 flex text-3xl text-neutral-dark '>
+                        <TaskTodoToolAddSub/>
+                        <TaskTodoToolControlTodo/>
+                    </div>
+                    : null
+            }
+
             <div className='w-full text-3xl flex items-center mx-2'>
                 <CustomCheckbox onChangeHandler={(e) => console.log(e.target)}/>
                 <CustomInput/>

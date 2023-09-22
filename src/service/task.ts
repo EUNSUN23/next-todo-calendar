@@ -44,16 +44,16 @@ export async function getTasks(){
         task.title = task.description;
         switch(task.level){
             case '1':
-                task.color = 'var(--color-minor)';
+                task.color = '#ffb900';
                 break;
             case '2':
-                task.color = 'var(--color-common)';
+                task.color = '#2998ff';
                 break;
             case '3':
-                task.color = 'var(--color-important)';
+                task.color = '#D22E1D';
                 break;
             default:
-                task.color = 'var(--color-common)';
+                task.color = '#2998ff';
         }
     }
 

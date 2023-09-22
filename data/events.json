@@ -6,7 +6,7 @@
       "end":"20230830",
       "url": "",
       "className": "",
-      "color":"var(--color-common)",
+      "color":"common",
       "backgroundColor": "",
       "borderColor": "",
       "textColor": ""
@@ -18,7 +18,7 @@
       "end":"20230825",
       "url": "",
       "className": "",
-      "color":"var(--color-important)",
+      "color":"important",
       "backgroundColor": "",
       "borderColor": "",
       "textColor": ""

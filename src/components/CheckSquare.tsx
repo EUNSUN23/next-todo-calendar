@@ -10,7 +10,7 @@ function CheckSquare({id}:Props) {
     const [checked, setChecked] = useState(false);
 
 
-    const iconColor = checked ? 'text-[var(--color-gray-dark)]':'text-gray-400';
+    const iconColor = checked ? 'text-gray-dark':'text-gray-400';
 
     return (
         <FiCheckSquare id={id} className={`${iconColor} cursor-pointer`} />

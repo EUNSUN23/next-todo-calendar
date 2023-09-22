@@ -20,7 +20,7 @@ function CustomInput() {
             />
 
             <div className='flex items-center absolute top-0 left-2 z-0 space-x-1'>
-                    <div className={`flex ${textValue.length > 0 && 'border-b border-[var(--color-neutral)]'} px-1 pb-1`}>
+                    <div className={`flex ${textValue.length > 0 && 'border-b border-neutral'} px-1 pb-1`}>
                         <div className='whitespace-nowrap text-transparent' >{textValue}</div>
                     </div>
                 {textValue.length > 0 && <BiWindow size={22}/>}

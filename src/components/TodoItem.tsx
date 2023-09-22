@@ -25,7 +25,7 @@ function TodoItem({task}: Props) {
     }
 
     return (
-        <li className='flex justify-center space-x-4 text-2xl text-[var(--color-gray-dark)] font-semibold'>
+        <li className='flex justify-center space-x-4 text-2xl text-gray-dark font-semibold'>
               <span className='flex pointer' onClick={onClickTodoItemHandler}>
                   <CheckSquare id='todo1'/>
                   <span>{task.description}</span>
