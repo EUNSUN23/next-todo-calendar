@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import CustomCheckbox from "@/components/ui/CustomCheckbox";
 import CustomInput from "@/components/ui/CustomInput";
+import TaskTodoToolAddSub from "@/components/taskDetailView/taskTodoTool/TaskTodoToolAddSub";
+import TaskTodoToolControlTodo from "@/components/taskDetailView/taskTodoTool/TaskTodoToolControlTodo";
 
 // TODO 1-1. input 창으로 보기 아이콘 넣기 & hover시에만 보이게
 // TODO 1-2. dot 클릭시 다음 항목 나오게 하기 - 삭제, todo 할당하기, 타입 변경(todo <-> note 아이콘으로.)
