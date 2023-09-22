@@ -8,9 +8,9 @@ import {DateFormat} from "@/utils/constant";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Avatar from "@/components/Avatar";
+import TaskTodoAddButton from "@/components/taskDetailView/taskTodoAdd/TaskTodoAddButton";
+import TaskTodoAddForm from "@/components/taskDetailView/taskTodoAdd/TaskTodoAddForm";
 import TaskTodoFilter from "@/components/taskDetailView/TaskTodoFilter";
-import AddTaskTodoButton from "@/components/taskDetailView/AddTaskTodoButton";
-import AddTaskTodoForm from "@/components/taskDetailView/AddTaskTodoForm";
 
 type Props = {
     currentTaskId: string;
@@ -90,8 +90,8 @@ function TaskDetailView({currentTaskId}: Props) {
                 {/* 업무 header */}
                 <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
                     <TaskTodoFilter/>
-                    <AddTaskTodoForm/>
-                    <AddTaskTodoButton/>
+                    <TaskTodoAddForm/>
+                    <TaskTodoAddButton/>
                 </section>
             </section>
             {/* END :  TO-DO 목록 */}
