@@ -1,7 +1,7 @@
 import React from 'react';
 import {RiAddLine} from "react-icons/ri";
 
-function AddTaskTodoButton() {
+function TaskTodoAddButton() {
     return (
         <div className='pl-16'>
             <button
@@ -13,4 +13,4 @@ function AddTaskTodoButton() {
     );
 }
 
-export default AddTaskTodoButton;
+export default TaskTodoAddButton;
