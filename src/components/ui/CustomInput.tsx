@@ -23,7 +23,7 @@ function CustomInput() {
                     <div className={`flex ${textValue.length > 0 && 'border-b border-neutral'} px-1 pb-1`}>
                         <div className='whitespace-nowrap text-transparent' >{textValue}</div>
                     </div>
-                {textValue.length > 0 && <BiWindow size={22}/>}
+                {textValue.length > 0 && <BiWindow size={22} className='cursor-pointer opacity-0 hover:opacity-100 transition opacity ease-in-out duration-100'/>}
             </div>
         </div>
     );
