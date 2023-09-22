@@ -17,6 +17,7 @@ function CustomInput() {
                     setInputTextValue(e.target.value);
                     if(e.target.value === "") setPlaceholder('업무 입력');
                 }}
+                spellCheck={false}
             />
 
             <div className='flex items-center absolute top-0 left-2 z-0 space-x-1'>
