@@ -12,7 +12,7 @@ function CustomInput() {
             <input
                 type="text"
                 placeholder={placeholder}
-                className={`ml-3 outline-none z-10 py-1`}
+                className='relative ml-3 bg-transparent outline-none z-10 py-1'
                 onChange={(e) => {
                     setInputTextValue(e.target.value);
                     if(e.target.value === "") setPlaceholder('업무 입력');
