@@ -1,7 +1,7 @@
 import {TaskEditRequestVo} from "@/utils/types";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {editTaskById as editTaskByIdApi} from "@/service/task";
-import {Slide, toast, Zoom} from "react-toastify";
+import {toast, Zoom} from "react-toastify";
 import {useRef} from "react";
 import 'react-toastify/dist/ReactToastify.css';
 
