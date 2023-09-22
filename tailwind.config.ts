@@ -35,21 +35,7 @@ const config: Config = {
         require('tailwindcss/nesting'),
         require('tailwindcss'),
         require('autoprefixer'),
-        plugin(function ({addUtilities, addComponents}) {
-            addUtilities({
-                '.hover-neutral-light-1': {
-                    border: '1px solid white',
-                    borderRadius: '0.25rem',
-                    '&:hover': {
-                        border: '1px solid #EEF1F5',
-                        borderRadius: '0.25rem',
-                        backgroundColor: '#EEF1F5',
-                        transitionTimingFunction: 'transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)',
-                        transitionDuration: '120ms',
-                        transitionProperty: 'background-color'
-                    }
-                }
-            })
+        plugin(function ({ addComponents, matchUtilities,theme}) {
            addComponents({
                 '.checkbox': {
                     position: 'relative',
@@ -106,6 +92,22 @@ const config: Config = {
 
 
             })
+            matchUtilities({
+                hoverColorChange:(value) => ({
+                    border: '1px solid white',
+                    borderRadius: '0.25rem',
+                    '&:hover': {
+                        border: `1px solid ${value}`,
+                        borderRadius: '0.25rem',
+                        backgroundColor: `${value}`,
+                        transitionTimingFunction: 'transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)',
+                        transitionDuration: '120ms',
+                        transitionProperty: 'background-color'
+                    }
+                })
+            },
+                {values:theme('colors')}
+            )
         })
     ],
 }
