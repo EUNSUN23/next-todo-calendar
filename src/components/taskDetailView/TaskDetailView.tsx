@@ -6,8 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import TaskTodoFilter from "@/components/taskDetailView/TaskTodoFilter";
 import TaskDetailViewHeader from "@/components/taskDetailView/TaskDetailViewHeader";
 import TaskMember from "@/components/taskDetailView/taskMember/TaskMember";
-import TaskTodoItem from "@/components/taskDetailView/taskTodoAdd/TaskTodoItem";
 import TaskTodoList from "@/components/taskDetailView/TaskTodoList";
+import TaskTodoAddButton from "@/components/taskDetailView/taskTodoAdd/TaskTodoAddButton";
 
 type Props = {
     currentTaskId: string;
@@ -43,7 +43,7 @@ function TaskDetailView({currentTaskId}: Props) {
                 <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
                     <TaskTodoFilter/>
                     <TaskTodoList todos={task.todos} notes={task.notes}/>
-                    <TaskTodoItem />
+                    <TaskTodoAddButton/>
                 </section>
             </section>
             {/* END :  TO-DO 목록 */}
