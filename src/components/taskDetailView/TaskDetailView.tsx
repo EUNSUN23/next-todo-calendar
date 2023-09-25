@@ -7,6 +7,7 @@ import TaskTodoFilter from "@/components/taskDetailView/TaskTodoFilter";
 import TaskDetailViewHeader from "@/components/taskDetailView/TaskDetailViewHeader";
 import TaskMember from "@/components/taskDetailView/taskMember/TaskMember";
 import TaskTodoAdd from "@/components/taskDetailView/taskTodoAdd/TaskTodoAdd";
+import TaskTodoList from "@/components/taskDetailView/TaskTodoList";
 
 type Props = {
     currentTaskId: string;
@@ -41,7 +42,8 @@ function TaskDetailView({currentTaskId}: Props) {
                 <div className='header-lg mx-2 items-center border-b border-neutral pb-2'>업무</div>
                 <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
                     <TaskTodoFilter/>
-                    <TaskTodoAdd/>
+                    <TaskTodoList todos={task.todos} notes={task.notes}/>
+                    <TaskTodoAdd />
                 </section>
             </section>
             {/* END :  TO-DO 목록 */}
