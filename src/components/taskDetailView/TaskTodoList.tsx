@@ -1,9 +1,10 @@
 import React from 'react';
 import {Note, Todo} from "@/utils/types";
+import TaskTodoItem from "@/components/taskDetailView/taskTodoAdd/TaskTodoItem";
 
 type Props = {
-    todos: Todo[] | [] | undefined,
-    notes: Note[] | [] | undefined
+    todos: Todo[] | [],
+    notes: Note[] | []
 }
 
 // todo - note는 todo에 속하게 둘건지, 따로 둘건지 ?
@@ -11,7 +12,9 @@ function TaskTodoList({todos, notes}:Props) {
     console.log("todos: ",todos);
     console.log("notes: ",notes);
     return (
-        <div></div>
+        <div className='flex-col space-y-3'>
+            {todos?.map((v) => <TaskTodoItem key={v._id} todo={v}/>)}
+        </div>
     );
 }
 
