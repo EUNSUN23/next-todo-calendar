@@ -28,8 +28,8 @@ export type Task = {
     end: string;
     level: string;
     finish: boolean;
-    notes?: Note[] | [];
-    todos?: Todo[] | [];
+    notes: Note[] | [];
+    todos: Todo[] | [];
     createdBy?: User | Record<string, never>;
 }
 
