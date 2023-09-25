@@ -12,7 +12,7 @@ import TaskTodoToolControlTodo from "@/components/taskDetailView/taskTodoTool/Ta
 // TODO 5. 현재 task에 todo 생성(currentTaskId이용) 로직 - groupId(currTaskid), contents(not require), createdBy, updateDate, assignee(user)
 // TODO 6. 수정후에는 마우스 hover시
 
-function TaskTodoAddForm() {
+function TaskTodoItem() {
     const [showTodoTool, setShowTodoTool] = useState(false);
 
     return (
@@ -35,4 +35,4 @@ function TaskTodoAddForm() {
     );
 }
 
-export default TaskTodoAddForm;
+export default TaskTodoItem;
