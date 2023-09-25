@@ -4,6 +4,8 @@ import CustomCheckbox from "@/components/ui/CustomCheckbox";
 import CustomInput from "@/components/ui/CustomInput";
 import TaskTodoToolAddSub from "@/components/taskDetailView/taskTodoTool/TaskTodoToolAddSub";
 import TaskTodoToolControlTodo from "@/components/taskDetailView/taskTodoTool/TaskTodoToolControlTodo";
+import {Todo} from "@/utils/types";
+import {BiWindow} from "react-icons/bi";
 
 // TODO 1-2. dot 클릭시 다음 항목 나오게 하기 - 삭제, todo 할당하기, 타입 변경(todo <-> note 아이콘으로.)
 // TODO 2. + 클릭시 sub 업무/note form 생성
@@ -12,24 +14,42 @@ import TaskTodoToolControlTodo from "@/components/taskDetailView/taskTodoTool/Ta
 // TODO 5. 현재 task에 todo 생성(currentTaskId이용) 로직 - groupId(currTaskid), contents(not require), createdBy, updateDate, assignee(user)
 // TODO 6. 수정후에는 마우스 hover시
 
-function TaskTodoItem() {
+type Props = {
+    todo?: Todo;
+}
+
+function TaskTodoItem({todo}: Props) {
     const [showTodoTool, setShowTodoTool] = useState(false);
 
+    console.log("todo: ", todo);
+
     return (
-        <div className='pl-16 relative' onMouseOver={() => setShowTodoTool(true)} onMouseLeave={() => setShowTodoTool(false)}>
+        <div className='pl-16 relative' onMouseOver={() => setShowTodoTool(true)}
+             onMouseLeave={() => setShowTodoTool(false)}>
             {
                 showTodoTool ?
                     <div
-                        className='absolute top-1/2 translate-y-[-50%] left-0 flex text-3xl text-neutral-dark '>
+                        className='flex absolute top-1/2 left-0 translate-y-[-50%] text-3xl text-neutral-dark '>
                         <TaskTodoToolAddSub/>
                         <TaskTodoToolControlTodo/>
                     </div>
                     : null
             }
 
-            <div className='w-full text-3xl flex items-center mx-2'>
+            <div className='w-full flex space-x-4 items-center text-3xl mx-3'>
                 <CustomCheckbox onChangeHandler={(e) => console.log(e.target)}/>
-                <CustomInput/>
+                {
+                    todo == undefined ?
+                        <CustomInput/>
+                        :
+                        <div className='flex items-center space-x-1'>
+                            <div className='whitespace-nowrap'>{todo.contents}</div>
+                            {todo.contents.length > 0 &&
+                                <BiWindow
+                                    size={22}
+                                    className='cursor-pointer opacity-0 hover:opacity-100 transition opacity ease-in-out duration-100'/>}
+                        </div>
+                }
             </div>
         </div>
     );
