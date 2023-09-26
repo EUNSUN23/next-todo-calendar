@@ -11,6 +11,7 @@ type Props = {
     currentTaskId: string;
 }
 
+// todo - currentTaskId 넘겨주기만 하고 직접 Task조회는 x
 function TaskDetailView({currentTaskId}: Props) {
     const {task, isLoading} = useTask(currentTaskId);
 
@@ -36,7 +37,7 @@ function TaskDetailView({currentTaskId}: Props) {
             <TaskDetailViewHeader task={task}/>
             <TaskMember task={task}/>
             {/* START :  TO-DO & NOTE 목록 */}
-            <TaskTodo todos={task.todos}/>
+            <TaskTodo taskId={currentTaskId}/>
             {/* END :  TO-DO 목록 */}
             <ToastContainer
                 position="top-center"
