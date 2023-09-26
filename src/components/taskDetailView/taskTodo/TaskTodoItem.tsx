@@ -1,7 +1,6 @@
 'use client';
 import React, {useState} from 'react';
 import CustomCheckbox from "@/components/ui/CustomCheckbox";
-import CustomInput from "@/components/ui/CustomInput";
 import {Todo} from "@/utils/types";
 import TaskTodoTool from "@/components/taskDetailView/taskTodo/TaskTodoTool";
 import {LuFileEdit} from "react-icons/lu";
@@ -15,14 +14,11 @@ import {LuFileEdit} from "react-icons/lu";
 
 type Props = {
     todo?: Todo;
+    taskId: string;
 }
 
-function TaskTodoItem({todo}: Props) {
+export function TaskTodoItem({todo, taskId}: Props) {
     const [showTodoTool, setShowTodoTool] = useState(false);
-
-    const isAddMode = todo == undefined;
-
-    console.log("todo: ", todo);
 
     return (
         <div
@@ -32,21 +28,16 @@ function TaskTodoItem({todo}: Props) {
         >
             {showTodoTool && <TaskTodoTool/>}
             <div
-                className={`w-full flex space-x-4 items-center text-3xl mx-3 p-1 ${!isAddMode && 'hoverColorChange-neutral-light-1'}`}>
-                <CustomCheckbox disabled={isAddMode}/>
-                {
-                    isAddMode ?
-                        <CustomInput/>
-                        :
-                        <div className='flex items-center space-x-3'>
-                            <div className='whitespace-nowrap text-gray-dark-3'>{todo?.contents}</div>
-                            {showTodoTool && <LuFileEdit size={22}
-                                                         className='cursor-pointer border border-[#dbdbdb] bg-white shadow-sm text-neutral-dark p-[2px] rounded-md'/>}
-                        </div>
-                }
+                className='w-full flex space-x-4 items-center text-3xl mx-3 p-1 hoverColorChange-neutral-light-1'>
+                <CustomCheckbox disabled={false}/>
+                <div className='flex items-center space-x-3'>
+                    <div className='whitespace-nowrap text-gray-dark-3'>{todo?.contents}</div>
+                    {showTodoTool && <LuFileEdit size={22}
+                                                 className='cursor-pointer border border-[#dbdbdb] bg-white shadow-sm text-neutral-dark p-[2px] rounded-md'/>}
+                </div>
+
             </div>
         </div>
     );
 }
 
-export default TaskTodoItem;
