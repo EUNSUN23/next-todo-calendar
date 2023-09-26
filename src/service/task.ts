@@ -68,7 +68,7 @@ export async function editTaskById(requestVo: TaskEditRequestVo) {
 }
 
 export async function getTaskTodoById(requestVo: TaskTodoRequestVo) {
-    const query = `*[_type == 'todo' && groupId=${requestVo.groupId}]{
+    const query = `*[_type == "todo" && groupId == "${requestVo.groupId}"]{
         _id, groupId, contents, finish,createdBy->, updateDate, assignee->
     }`;
 
@@ -78,7 +78,7 @@ export async function getTaskTodoById(requestVo: TaskTodoRequestVo) {
 
 export async function createEditTaskTodo(requestVo: TaskTodoRequestVo) {
     // create
-    if(requestVo.todo == undefined){
+    if(requestVo.todo !== undefined){
         const todoId = uuidv4();
         return await client
             .transaction()
@@ -89,12 +89,14 @@ export async function createEditTaskTodo(requestVo: TaskTodoRequestVo) {
                     .append('todos', [{_ref: todoId, _type: 'reference'}])
             )
             .commit({autoGenerateArrayKeys: true});
+    }else{
+        // edit
+        return await client
+            .patch(requestVo._id!)
+            .set({[requestVo.editTargetField]:requestVo.editTargetValue})
+            .commit();
     }
 
-    // edit
-    return await client
-        .patch(requestVo.todo._id)
-        .set({[requestVo.editTargetField]:requestVo.editTargetValue})
-        .commit();
+
 }
 
