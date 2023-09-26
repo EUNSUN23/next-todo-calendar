@@ -28,7 +28,7 @@ function TaskTodoItem({todo}: Props) {
             onMouseOver={() => setShowTodoTool(true)}
             onMouseLeave={() => setShowTodoTool(false)}
         >
-            <TaskTodoTool isShow={showTodoTool}/>
+            {showTodoTool && <TaskTodoTool/>}
             <div className={`w-full flex space-x-4 items-center text-3xl mx-3 p-1 ${todo !== undefined && 'hoverColorChange-neutral-light-1'}`}>
                 <CustomCheckbox disabled={todo == undefined}/>
                 {
