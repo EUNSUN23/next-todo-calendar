@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
 import TaskView from "@/components/TaskView";
-import {useCurrentTask} from "@/context/CurrentTaskContext";
+import {useOpenTask} from "@/context/OpenTaskContext";
 import TaskDetailView from "@/components/taskDetailView/TaskDetailView";
 
 
 function TaskSection() {
-    const {isOpen, currentTaskId} = useCurrentTask()!;
+    const {isOpen, currentTaskId} = useOpenTask()!;
 
     const fullDisplay = "xl:basis-[850px] flex max-lg:flex-col";
     const todoDisplay = "lg:basis-[400px] md:basis-[250px]";
@@ -15,7 +15,7 @@ function TaskSection() {
         <>
             <section className={`basis-full ${isOpen ? fullDisplay : todoDisplay} `}>
                 <TaskView />
-                {isOpen && <TaskDetailView currentTaskId={currentTaskId}/>}
+                {(isOpen && currentTaskId) && <TaskDetailView currentTaskId={currentTaskId}/>}
             </section>
         </>
     );

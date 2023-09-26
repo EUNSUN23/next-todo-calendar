@@ -2,7 +2,7 @@ import React from 'react';
 import TaskSection from "@/components/TaskSection";
 import CalendarSection from "@/components/CalendarSection";
 import Header from "@/components/Header";
-import {CurrentTaskProvider} from "@/context/CurrentTaskContext";
+import {CurrentTaskProvider} from "@/context/OpenTaskContext";
 
 function MainPage() {
     return (

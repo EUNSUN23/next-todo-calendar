@@ -2,11 +2,11 @@
 import React from 'react';
 import TaskViewHeader from "@/components/TaskViewHeader";
 import TaskViewMain from "@/components/TaskViewMain";
-import {useCurrentTask} from "@/context/CurrentTaskContext";
+import {useOpenTask} from "@/context/OpenTaskContext";
 
 
 function TaskView() {
-    const {isOpen} = useCurrentTask()!;
+    const {isOpen} = useOpenTask()!;
 
     return (
         <section className={`${isOpen} ? 'basis-[230px]'`}>

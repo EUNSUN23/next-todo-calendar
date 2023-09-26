@@ -3,7 +3,7 @@ import React from 'react';
 import {Task} from "@/utils/types";
 import CheckSquare from "@/components/CheckSquare";
 import Badge from "@/components/Badge";
-import {CurrentTaskContextValue, useCurrentTask} from "@/context/CurrentTaskContext";
+import {CurrentTaskContextValue, useOpenTask} from "@/context/OpenTaskContext";
 
 type Props = {
     task: Task;
@@ -14,7 +14,7 @@ function TodoItem({task}: Props) {
         openCurrentTask,
         closeCurrentTask,
         isOpen
-    }:CurrentTaskContextValue = useCurrentTask()!;
+    }:CurrentTaskContextValue = useOpenTask()!;
     console.log("task: ", task);
 
     // todo - description클릭시 task 상세 페이지 open..
