@@ -1,6 +1,6 @@
 export type Note = {
-    _id: string;
-    id: string;
+    _id?: string;
+    id?: string;
     groupId: string;
     contents: string;
     createdBy: User;
