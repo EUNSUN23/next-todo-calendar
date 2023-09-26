@@ -1,6 +1,6 @@
 import React from 'react';
 import {Note, Todo} from "@/utils/types";
-import TaskTodoItem from "@/components/taskDetailView/taskTodoAdd/TaskTodoItem";
+import TaskTodoItem from "@/components/taskDetailView/TaskTodoItem";
 
 type Props = {
     todos: Todo[] | [],
