@@ -1,9 +1,9 @@
-import React, {ChangeEventHandler} from 'react';
+import React from 'react';
 
 type Props = {
     disabled:boolean;
 }
-// todo - onChange메서드 추가 
+// todo - onChange메서드 추가
 function CustomCheckbox({disabled}:Props) {
     return (
         <label className="checkbox path">

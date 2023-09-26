@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 import CustomCheckbox from "@/components/ui/CustomCheckbox";
 import CustomInput from "@/components/ui/CustomInput";
 import {Todo} from "@/utils/types";
-import {BiWindow} from "react-icons/bi";
 import TaskTodoTool from "@/components/taskDetailView/taskTodoTool/TaskTodoTool";
+import {LuFileEdit} from "react-icons/lu";
 
 // TODO 1-2. dot 클릭시 다음 항목 나오게 하기 - 삭제, todo 할당하기, 타입 변경(todo <-> note 아이콘으로.)
 // TODO 2. + 클릭시 sub 업무/note form 생성
@@ -29,18 +29,16 @@ function TaskTodoItem({todo}: Props) {
             onMouseLeave={() => setShowTodoTool(false)}
         >
             {showTodoTool && <TaskTodoTool/>}
-            <div className={`w-full flex space-x-4 items-center text-3xl mx-3 p-1 ${todo !== undefined && 'hoverColorChange-neutral-light-1'}`}>
+            <div
+                className={`w-full flex space-x-4 items-center text-3xl mx-3 p-1 ${todo !== undefined && 'hoverColorChange-neutral-light-1'}`}>
                 <CustomCheckbox disabled={todo == undefined}/>
                 {
                     todo == undefined ?
                         <CustomInput/>
                         :
-                        <div className='flex items-center space-x-1'>
-                            <div className='whitespace-nowrap'>{todo.contents}</div>
-                            {todo.contents.length > 0 &&
-                                <BiWindow
-                                    size={22}
-                                    className='cursor-pointer opacity-0 hover:opacity-100 transition opacity ease-in-out duration-100'/>}
+                        <div className='flex items-center space-x-3'>
+                            <div className='whitespace-nowrap text-gray-dark-3'>{todo.contents}</div>
+                            {showTodoTool && <LuFileEdit size={22} className='cursor-pointer border border-[#dbdbdb] bg-white shadow-sm text-neutral-dark p-[2px] rounded-md'/>}
                         </div>
                 }
             </div>
