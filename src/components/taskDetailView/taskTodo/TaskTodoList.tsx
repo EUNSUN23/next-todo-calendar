@@ -12,13 +12,9 @@ type Props = {
 function TaskTodoList({todos}: Props) {
     console.log("todos: ", todos);
     return (
-        <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
-            <TaskTodoFilter/>
-            <div className='flex-col'>
-                {todos?.map((v) => <TaskTodoItem key={v._id} todo={v}/>)}
-            </div>
-            <TaskTodoAddButton/>
-        </section>
+        <div className='flex-col'>
+            {todos?.map((v) => <TaskTodoItem key={v._id} todo={v}/>)}
+        </div>
     );
 }
 

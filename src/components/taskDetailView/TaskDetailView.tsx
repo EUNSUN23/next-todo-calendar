@@ -5,7 +5,7 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import TaskDetailViewHeader from "@/components/taskDetailView/TaskDetailViewHeader";
 import TaskMember from "@/components/taskDetailView/taskMember/TaskMember";
-import TaskTodoList from "@/components/taskDetailView/taskTodo/TaskTodoList";
+import TaskTodo from "@/components/taskDetailView/taskTodo/TaskTodo";
 
 type Props = {
     currentTaskId: string;
@@ -36,10 +36,7 @@ function TaskDetailView({currentTaskId}: Props) {
             <TaskDetailViewHeader task={task}/>
             <TaskMember task={task}/>
             {/* START :  TO-DO & NOTE 목록 */}
-            <section className='w-full flex-col space-y-4 '>
-                <div className='header-lg mx-2 items-center border-b border-neutral pb-2'>업무</div>
-                <TaskTodoList todos={task.todos} notes={task.notes}/>
-            </section>
+            <TaskTodo todos={task.todos}/>
             {/* END :  TO-DO 목록 */}
             <ToastContainer
                 position="top-center"
