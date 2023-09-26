@@ -12,7 +12,7 @@ function TaskTodoList({todos, notes}:Props) {
     console.log("todos: ",todos);
     console.log("notes: ",notes);
     return (
-        <div className='flex-col space-y-3'>
+        <div className='flex-col'>
             {todos?.map((v) => <TaskTodoItem key={v._id} todo={v}/>)}
         </div>
     );

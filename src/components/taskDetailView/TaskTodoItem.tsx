@@ -36,8 +36,8 @@ function TaskTodoItem({todo}: Props) {
                     : null
             }
 
-            <div className='w-full flex space-x-4 items-center text-3xl mx-3'>
-                <CustomCheckbox onChangeHandler={(e) => console.log(e.target)}/>
+            <div className={`w-full flex space-x-4 items-center text-3xl mx-3 p-1 ${todo !== undefined && 'hoverColorChange-neutral-light-1'}`}>
+                <CustomCheckbox disabled={todo == undefined}/>
                 {
                     todo == undefined ?
                         <CustomInput/>
