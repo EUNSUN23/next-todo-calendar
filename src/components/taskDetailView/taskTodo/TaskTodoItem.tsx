@@ -20,6 +20,8 @@ type Props = {
 function TaskTodoItem({todo}: Props) {
     const [showTodoTool, setShowTodoTool] = useState(false);
 
+    const isAddMode = todo == undefined;
+
     console.log("todo: ", todo);
 
     return (
@@ -30,15 +32,16 @@ function TaskTodoItem({todo}: Props) {
         >
             {showTodoTool && <TaskTodoTool/>}
             <div
-                className={`w-full flex space-x-4 items-center text-3xl mx-3 p-1 ${todo !== undefined && 'hoverColorChange-neutral-light-1'}`}>
-                <CustomCheckbox disabled={todo == undefined}/>
+                className={`w-full flex space-x-4 items-center text-3xl mx-3 p-1 ${!isAddMode && 'hoverColorChange-neutral-light-1'}`}>
+                <CustomCheckbox disabled={isAddMode}/>
                 {
-                    todo == undefined ?
+                    isAddMode ?
                         <CustomInput/>
                         :
                         <div className='flex items-center space-x-3'>
-                            <div className='whitespace-nowrap text-gray-dark-3'>{todo.contents}</div>
-                            {showTodoTool && <LuFileEdit size={22} className='cursor-pointer border border-[#dbdbdb] bg-white shadow-sm text-neutral-dark p-[2px] rounded-md'/>}
+                            <div className='whitespace-nowrap text-gray-dark-3'>{todo?.contents}</div>
+                            {showTodoTool && <LuFileEdit size={22}
+                                                         className='cursor-pointer border border-[#dbdbdb] bg-white shadow-sm text-neutral-dark p-[2px] rounded-md'/>}
                         </div>
                 }
             </div>
