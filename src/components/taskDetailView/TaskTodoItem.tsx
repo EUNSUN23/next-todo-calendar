@@ -2,10 +2,9 @@
 import React, {useState} from 'react';
 import CustomCheckbox from "@/components/ui/CustomCheckbox";
 import CustomInput from "@/components/ui/CustomInput";
-import TaskTodoToolAddSub from "@/components/taskDetailView/taskTodoTool/TaskTodoToolAddSub";
-import TaskTodoToolControlTodo from "@/components/taskDetailView/taskTodoTool/TaskTodoToolControlTodo";
 import {Todo} from "@/utils/types";
 import {BiWindow} from "react-icons/bi";
+import TaskTodoTool from "@/components/taskDetailView/taskTodoTool/TaskTodoTool";
 
 // TODO 1-2. dot 클릭시 다음 항목 나오게 하기 - 삭제, todo 할당하기, 타입 변경(todo <-> note 아이콘으로.)
 // TODO 2. + 클릭시 sub 업무/note form 생성
@@ -24,18 +23,12 @@ function TaskTodoItem({todo}: Props) {
     console.log("todo: ", todo);
 
     return (
-        <div className='pl-16 relative' onMouseOver={() => setShowTodoTool(true)}
-             onMouseLeave={() => setShowTodoTool(false)}>
-            {
-                showTodoTool ?
-                    <div
-                        className='flex absolute top-1/2 left-0 translate-y-[-50%] text-3xl text-neutral-dark '>
-                        <TaskTodoToolAddSub/>
-                        <TaskTodoToolControlTodo/>
-                    </div>
-                    : null
-            }
-
+        <div
+            className='pl-16 relative'
+            onMouseOver={() => setShowTodoTool(true)}
+            onMouseLeave={() => setShowTodoTool(false)}
+        >
+            <TaskTodoTool isShow={showTodoTool}/>
             <div className={`w-full flex space-x-4 items-center text-3xl mx-3 p-1 ${todo !== undefined && 'hoverColorChange-neutral-light-1'}`}>
                 <CustomCheckbox disabled={todo == undefined}/>
                 {
