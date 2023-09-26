@@ -2,6 +2,7 @@ import {formatDateToStr} from "@/utils/common";
 import {DateFormat} from "@/utils/constant";
 import {TaskEditRequestVo, TaskTodoRequestVo} from "@/utils/types";
 import {createClient} from "@sanity/client";
+import {v4 as uuidv4} from 'uuid';
 
 const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -66,12 +67,25 @@ export async function editTaskById(requestVo: TaskEditRequestVo) {
         .commit({autoGenerateArrayKeys: true}); // Perform the patch and return a promise
 }
 
-export async function getTaskTodoById(requestVo: TaskTodoRequestVo){
+export async function getTaskTodoById(requestVo: TaskTodoRequestVo) {
     const query = `*[_type == 'todo' && groupId=${requestVo.groupId}]{
         _id, groupId, contents, finish,createdBy->, updateDate, assignee->
     }`;
 
     const res = await client.fetch(query);
     return res;
+}
+
+export async function createTaskTodo(requestVo: TaskTodoRequestVo) {
+    const todoId = uuidv4();
+    return client
+        .transaction()
+        .create({_type: 'todo', _id: todoId, ...requestVo.todo})
+        .patch(requestVo.groupId, task =>
+            task
+                .setIfMissing({todos: []})
+                .append('todos', [{_ref: todoId, _type: 'reference'}])
+        )
+        .commit({autoGenerateArrayKeys: true});
 }
 
