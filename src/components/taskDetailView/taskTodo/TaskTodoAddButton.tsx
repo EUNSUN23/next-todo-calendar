@@ -1,7 +1,10 @@
+'use client';
 import React from 'react';
 import {RiAddLine} from "react-icons/ri";
 
+
 function TaskTodoAddButton() {
+
     return (
         <div className='pl-16'>
             <button

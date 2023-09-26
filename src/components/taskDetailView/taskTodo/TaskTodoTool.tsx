@@ -1,6 +1,6 @@
 import React from 'react';
-import TaskTodoToolAddSub from "@/components/taskDetailView/taskTodoTool/TaskTodoToolAddSub";
-import TaskTodoToolControlTodo from "@/components/taskDetailView/taskTodoTool/TaskTodoToolControlTodo";
+import TaskTodoToolAddSub from "@/components/taskDetailView/taskTodo/TaskTodoToolAddSub";
+import TaskTodoToolControlTodo from "@/components/taskDetailView/taskTodo/TaskTodoToolControlTodo";
 
 
 function TaskTodoTool() {
