@@ -1,6 +1,6 @@
 import {formatDateToStr} from "@/utils/common";
 import {DateFormat} from "@/utils/constant";
-import {TaskEditRequestVo} from "@/utils/types";
+import {TaskEditRequestVo, TaskTodoRequestVo} from "@/utils/types";
 import {createClient} from "@sanity/client";
 
 const client = createClient({
@@ -64,5 +64,14 @@ export async function editTaskById(requestVo: TaskEditRequestVo) {
     return await client.patch(requestVo._id) // Document ID to patch
         .set({[requestVo.key]: requestVo.value}) // Shallow merge
         .commit({autoGenerateArrayKeys: true}); // Perform the patch and return a promise
+}
+
+export async function getTaskTodoById(requestVo: TaskTodoRequestVo){
+    const query = `*[_type == 'todo' && groupId=${requestVo.groupId}]{
+        _id, groupId, contents, finish,createdBy->, updateDate, assignee->
+    }`;
+
+    const res = await client.fetch(query);
+    return res;
 }
 

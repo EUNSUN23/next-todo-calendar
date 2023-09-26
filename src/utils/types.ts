@@ -40,6 +40,12 @@ export type TaskEditRequestVo = {
 
 }
 
+export type TaskTodoRequestVo = {
+    groupId: string;
+    key?:string,
+    value?: string | boolean | User
+}
+
 export type ReactChildNode = {
     children: React.ReactNode
 }
