@@ -41,10 +41,11 @@ export type TaskEditRequestVo = {
 }
 
 export type TaskTodoRequestVo = {
+    _id?:string;
     groupId: string;
-    editTargetField?:string,
-    editTargetValue?: string | boolean | User,
-    todo?:Todo
+    editTargetField?:string;
+    editTargetValue?: string | boolean | User;
+    todo?:Todo;
 }
 
 export type ReactChildNode = {
