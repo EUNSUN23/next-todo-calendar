@@ -29,7 +29,7 @@ html {
     }
 
     .container {
-        @apply max-w-[150rem] my-20 mx-auto bg-white shadow-gray-400/70 shadow-lg min-h-[50rem]
+        @apply max-w-[180rem] my-20 mx-auto bg-white shadow-gray-400/70 shadow-lg min-h-[50rem]
     }
 
 
