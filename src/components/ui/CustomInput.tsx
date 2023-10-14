@@ -12,11 +12,14 @@ function CustomInput({todoContents, onChangeHandler, isReadOnly = false}: Props)
 
 
     return (
-        <div className='relative'>
+        <div className='relative ml-1 mr-4 min-h-[2.3rem]'>
+            <div className='relative flex items-center space-x-1 z-10'>
+                <div className='whitespace-nowrap text-transparent'>{todoContents}</div>
+            </div>
             <input
                 type="text"
                 placeholder={placeholder}
-                className='relative ml-3 bg-transparent outline-none z-10 py-1'
+                className='absolute top-0 left-2 z-0  bg-transparent outline-none'
                 onChange={(e) => {
                     onChangeHandler(e.target.value);
                     if(e.target.value === "") setPlaceholder('업무 입력');
