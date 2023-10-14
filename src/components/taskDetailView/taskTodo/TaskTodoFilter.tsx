@@ -8,7 +8,7 @@ import {BiCaretDown} from "react-icons/bi";
 // TODO 4 - depth1 옵션에서 '참여자' 클릭시 옆에 참여자 select show (+ 참여자 명단 가져오기)
 function TaskTodoFilter() {
     return (
-        <section className='flex space-x-4 '>
+        <section className='h-12 flex items-center my-4 space-x-4 '>
             <div className='w-auto relative'> {/* 필터 - depth_1 */}
                 <div className='flex space-x-1 items-center font-md py-1.5 cursor-pointer'> {/* 필터 1 타이틀 */}
                     <BsFilter/>
