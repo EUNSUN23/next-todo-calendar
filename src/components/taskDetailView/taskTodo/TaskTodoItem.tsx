@@ -20,11 +20,21 @@ type Props = {
 export function TaskTodoItem({todo, taskId}: Props) {
     const [showTodoTool, setShowTodoTool] = useState(false);
 
+    function onMouseOverHandler(e) {
+        e.stopPropagation();
+        setShowTodoTool(true);
+    }
+
+    function onMouseLeaveHandler(e) {
+        e.stopPropagation();
+        setShowTodoTool(false);
+    }
+
     return (
         <div
-            className='pl-16 relative'
-            onMouseOver={() => setShowTodoTool(true)}
-            onMouseLeave={() => setShowTodoTool(false)}
+            className='flex items-center pl-16 relative'
+            onMouseOver={onMouseOverHandler}
+            onMouseLeave={onMouseLeaveHandler}
         >
             {showTodoTool && <TaskTodoTool/>}
             <div
