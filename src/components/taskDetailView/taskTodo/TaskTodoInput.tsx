@@ -11,7 +11,6 @@ interface TaskTodoInputProps {
 function TaskTodoInput({initContents, children}:TaskTodoInputProps) {
     const [todoContents, setTodoContents] = useState(() => initContents);
     const [checked, setChecked] = useState(false);
-    const [isReadOnly, setIsReadOnly] = useState(false);
 
     function onChangeCheckboxHandler(e:ChangeEvent<HTMLInputElement>){
         console.log("e.target.checked: ",e.target.checked);
@@ -23,7 +22,11 @@ function TaskTodoInput({initContents, children}:TaskTodoInputProps) {
         <div
             className='w-full flex items-center text-3xl p-1 hoverColorChange-neutral-light-1'>
             <CustomCheckbox checked={checked} onChangeHandler={onChangeCheckboxHandler}  disabled={false}/>
-            <CustomInput todoContents={todoContents} onChangeHandler={(v:string) => setTodoContents(v)} isReadOnly={isReadOnly} />
+            <CustomInput
+                todoContents={todoContents}
+                onChangeHandler={(v:string) => setTodoContents(v)}
+                isReadOnly={true}
+            />
             {children}
         </div>
     );
