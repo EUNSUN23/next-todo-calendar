@@ -10,7 +10,7 @@ function TaskTodoList({children}: ReactChildNode) {
     const [showTaskTodoAddElement, setShowTaskTodoAddElement] = useState(false);
 
     return (
-        <div className='flex-col'>
+        <div className='flex-col mt-5'>
             {showTaskTodoAddElement && <TaskTodoAddItem setIsOpen={setShowTaskTodoAddElement}/>}
             {children}
             <div className='pl-16'>
