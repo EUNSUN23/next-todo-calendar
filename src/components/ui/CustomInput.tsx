@@ -10,9 +10,10 @@ type Props = {
 function CustomInput({todoContents, onChangeHandler, isReadOnly = false}: Props) {
     const [placeholder, setPlaceholder] = useState('업무 입력');
 
+    const minWidth = todoContents.length === 0 ? 'min-w-[6.8rem]' : '';
 
     return (
-        <div className='relative ml-1 mr-4 min-h-[2.3rem]'>
+        <div className={`relative ml-1 mr-4 min-h-[2.3rem] ${minWidth}`}>
             <div className='relative flex items-center space-x-1 z-10'>
                 <div className='whitespace-nowrap text-transparent'>{todoContents}</div>
             </div>
