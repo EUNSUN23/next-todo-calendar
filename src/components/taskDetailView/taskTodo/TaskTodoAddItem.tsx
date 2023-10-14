@@ -42,11 +42,21 @@ function TaskTodoAddItem({setIsOpen}:TaskTodoAddItemProps) {
         setTodoContents('');
     }
 
+    function onMouseOverHandler(e){
+        e.stopPropagation();
+        setShowTodoTool(true);
+    }
+
+    function onMouseLeaveHandler(e){
+        e.stopPropagation();
+        setShowTodoTool(false);
+    }
+
     return (
         <div
             className='pl-16 relative'
-            onMouseOver={() => setShowTodoTool(true)}
-            onMouseLeave={() => setShowTodoTool(false)}
+            onMouseOver={onMouseOverHandler}
+            onMouseLeave={onMouseLeaveHandler}
             onBlur={onBlurHandler}
         >
             {showTodoTool && <TaskTodoTool/>}
