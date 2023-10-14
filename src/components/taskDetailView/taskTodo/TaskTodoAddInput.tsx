@@ -22,7 +22,7 @@ function TaskTodoAddInput({todoContents, onChangeHandler, isCheckDisabled}:TaskT
 
     return (
         <div
-            className='w-full flex space-x-4 items-center text-3xl mx-3 p-1 hoverColorChange-neutral-light-1'>
+            className='w-full flex items-center text-3xl p-1 hoverColorChange-neutral-light-1'>
             <CustomCheckbox checked={checked} onChangeHandler={onChangeCheckboxHandler} disabled={isCheckDisabled}/>
             <CustomInput todoContents={todoContents} onChangeHandler={onChangeHandler}/>
         </div>
