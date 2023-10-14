@@ -21,11 +21,12 @@ function CustomInput({todoContents, onChangeHandler, isReadOnly = false}: Props)
                 placeholder={placeholder}
                 className='absolute top-0 left-2 z-0  bg-transparent outline-none'
                 onChange={(e) => {
-                    onChangeHandler(e.target.value);
-                    if(e.target.value === "") setPlaceholder('업무 입력');
+                    if (onChangeHandler !== undefined) onChangeHandler(e.target.value);
+                    if (e.target.value === "") setPlaceholder('업무 입력');
                 }}
                 spellCheck={false}
                 value={todoContents}
+                readOnly={isReadOnly}
             />
 
         </div>
