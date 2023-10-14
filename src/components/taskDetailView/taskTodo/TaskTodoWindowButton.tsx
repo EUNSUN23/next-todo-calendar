@@ -1,16 +1,19 @@
 import React from 'react';
 import {BiWindow} from "react-icons/bi";
+import {buttons} from "polished";
 
 interface TaskTodoWindowButtonProps {
-    id:string;
+    id: string;
 }
 
-function TaskTodoWindowButton({id}:TaskTodoWindowButtonProps) {
+function TaskTodoWindowButton({id}: TaskTodoWindowButtonProps) {
     return (
-       <BiWindow size={22}
-                 className='cursor-pointer mr-auto'
-                 onClick={() => console.log("todo Id:  ",id)}
-       />
+        <button
+            className='relative z-100 cursor-pointer mr-auto'
+            onClick={() => console.log("todo Id:  ", id)}
+        >
+            <BiWindow size={22} className='hover:text-gray-dark-3'/>
+        </button>
     );
 }
 
