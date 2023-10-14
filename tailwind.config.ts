@@ -60,7 +60,12 @@ const config: Config = {
                             boxShadow: 'inset 0 0 0 2px, #BBC1E1'
                         },
                         '&:checked': {
-                            boxShadow: 'inset 0 0 0 2px #1E2235'
+                            boxShadow: 'inset 0 0 0 2px #1E2235',
+                            '& + svg':{
+                                stroke:'#333',
+                                'stroke-dasharray': '16.1 86.12',
+                                'stroke-dashoffset': '102.22'
+                            }
                         },
                         '&:disabled':{
                             boxShadow:'inset 0 0 0 2px #999',
