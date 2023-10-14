@@ -19,13 +19,11 @@ function TaskTodo({taskId}: Props) {
 
     return (
         <section className='w-full flex-col space-y-4 '>
-            <section className='flex-col space-y-4 px-2'>  {/* 업무 contents */}
-                <div className='header-lg mx-2 items-center border-b border-neutral pb-2'>업무</div>
+            <section className='flex-col px-2'>  {/* 업무 contents */}
+                <div className='h-14 header-lg mx-2 items-center border-b border-neutral pb-2'>업무</div>
                 <TaskTodoFilter/>
                 <TaskTodoList>
-                    <div className='flex-col'>
                         {todos?.map((v) => <TaskTodoItem key={v._id} todo={v} taskId={taskId}/>)}
-                    </div>
                 </TaskTodoList>
             </section>
         </section>
