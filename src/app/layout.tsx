@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import QueryClientProviderWrapper from "@/components/QueryClientProviderWrapper";
 import {RecoilRoot} from "recoil";
+import Client from "@/app/client";
 
 const sans = Open_Sans({subsets: ['latin']})
 
@@ -21,11 +22,11 @@ export default function RootLayout({
     <html lang="en" className={sans.className}>
       <body>
         <div className="container">
-          <RecoilRoot>
-            <QueryClientProviderWrapper>
-              {children}
-            </QueryClientProviderWrapper>
-          </RecoilRoot>
+          <Client>
+              <QueryClientProviderWrapper>
+                {children}
+              </QueryClientProviderWrapper>`
+          </Client>
         </div>
      </body>
     </html>
