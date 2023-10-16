@@ -1,26 +1,20 @@
 'use client';
 import React from 'react';
-import {useTask} from "@/hooks/useTask";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import TaskDetailViewHeader from "@/components/taskDetailView/TaskDetailViewHeader";
 import TaskMember from "@/components/taskDetailView/taskMember/TaskMember";
-import TaskTodo from "@/components/taskDetailView/taskTodo/TaskTodo";
-
-type Props = {
-    currentTaskId: string;
-}
+import TaskTodoSection from "@/components/taskDetailView/taskTodo/TaskTodoSection";
 
 // todo - currentTaskId 넘겨주기만 하고 직접 Task조회는 x
-function TaskDetailView({currentTaskId}: Props) {
-    const {task, isLoading} = useTask(currentTaskId);
+function TaskDetailView() {
+    // const {task, isLoading} = useTask(currentTaskId);
 
 
-    if (isLoading) return <div>loading...</div>; // todo - loader 추가
+    // if (isLoading) return <div>loading...</div>; // todo - loader 추가
     // todo react-query로 taskId에 맞는 task 가져오기.
 
 
-    console.log("currentTask: ", task);
     // currentTask.title // 테스트프로젝트 2 /타이틀
     // currentTask.finish // 테스트프로젝트 2 / 완료 여부
     // currentTask.start // yyyy-mm-dd
@@ -34,10 +28,10 @@ function TaskDetailView({currentTaskId}: Props) {
 
     return (
         <section className='flex flex-col space-y-10 w-full border border-black p-3'>
-            <TaskDetailViewHeader task={task}/>
-            <TaskMember task={task}/>
+            <TaskDetailViewHeader/>
+            <TaskMember />
             {/* START :  TO-DO & NOTE 목록 */}
-            <TaskTodo taskId={currentTaskId}/>
+            <TaskTodoSection />
             {/* END :  TO-DO 목록 */}
             <ToastContainer
                 position="top-center"

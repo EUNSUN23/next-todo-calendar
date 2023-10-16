@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import TodoItem from "@/components/TodoItem";
+import TaskItem from "@/components/TaskItem";
 import {useTasks} from "@/hooks/useTasks";
 
 function TaskViewMain() {
@@ -11,7 +11,7 @@ function TaskViewMain() {
     return (
         <section className='description'>
             <ul className='pl-4'>
-                {tasks.map(v => <TodoItem key={v._id}  task={v}/>)}
+                {tasks.map(v => <TaskItem key={v._id} task={v}/>)}
             </ul>
         </section>
     );

@@ -1,18 +1,23 @@
 'use client';
 import React, {useState} from 'react';
-import {ReactChildNode} from "@/utils/types";
 import {RiAddLine} from "react-icons/ri";
 import TaskTodoAddItem from "@/components/taskDetailView/taskTodo/TaskTodoAddItem";
+import {useRecoilValue} from "recoil";
+import {currentTaskStateStore} from "@/store";
+import {useTaskTodo} from "@/hooks/useTaskTodo";
+import {TaskTodoItem} from "@/components/taskDetailView/taskTodo/TaskTodoItem";
 
 
 // todo - note는 todo에 속하게 둘건지, 따로 둘건지 ?
-function TaskTodoList({children}: ReactChildNode) {
+function TaskTodoList() {
     const [showTaskTodoAddElement, setShowTaskTodoAddElement] = useState(false);
+    const {currentTaskId} = useRecoilValue(currentTaskStateStore);
+    const {todos} = useTaskTodo(currentTaskId);
 
     return (
         <div className='flex-col mt-5'>
             {showTaskTodoAddElement && <TaskTodoAddItem setIsOpen={setShowTaskTodoAddElement}/>}
-            {children}
+            {todos?.map((v) => <TaskTodoItem key={v._id} todo={v} taskId={currentTaskId}/>)}
             <div className='pl-16'>
                 <button
                     onClick={() => setShowTaskTodoAddElement(true)}

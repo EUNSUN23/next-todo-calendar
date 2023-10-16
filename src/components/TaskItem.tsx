@@ -3,25 +3,23 @@ import React from 'react';
 import {Task} from "@/utils/types";
 import CheckSquare from "@/components/CheckSquare";
 import Badge from "@/components/Badge";
-import {CurrentTaskContextValue, useOpenTask} from "@/context/OpenTaskContext";
+import {useRecoilState, useResetRecoilState} from "recoil";
+import {currentTaskStateStore} from "@/store";
 
 type Props = {
     task: Task;
 }
 
-function TodoItem({task}: Props) {
-    const {
-        openCurrentTask,
-        closeCurrentTask,
-        isOpen
-    }:CurrentTaskContextValue = useOpenTask()!;
-    console.log("task: ", task);
+function TaskItem({task}: Props) {
+    const [{currentTaskId, currentTask}, setCurrentTask] = useRecoilState(currentTaskStateStore);
+    const resetCurrentTask = useResetRecoilState(currentTaskStateStore);
+    console.log("task: ", currentTask);
 
     // todo - description클릭시 task 상세 페이지 open..
 
     function onClickTodoItemHandler() {
-        if (isOpen) closeCurrentTask();
-        else openCurrentTask(task._id);
+        if (currentTaskId === task._id) resetCurrentTask();
+        else setCurrentTask({currentTask:task, currentTaskId:task._id});
     }
 
     return (
@@ -35,4 +33,4 @@ function TodoItem({task}: Props) {
     );
 }
 
-export default TodoItem;
+export default TaskItem;

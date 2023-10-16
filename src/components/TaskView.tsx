@@ -2,14 +2,15 @@
 import React from 'react';
 import TaskViewHeader from "@/components/TaskViewHeader";
 import TaskViewMain from "@/components/TaskViewMain";
-import {useOpenTask} from "@/context/OpenTaskContext";
+import {currentTaskStateStore} from "@/store";
+import {useRecoilValue} from "recoil";
 
 
 function TaskView() {
-    const {isOpen} = useOpenTask()!;
+    const {currentTaskId} = useRecoilValue(currentTaskStateStore);
 
     return (
-        <section className={`${isOpen} ? 'basis-[230px]'`}>
+        <section className={`${currentTaskId} ? 'basis-[230px]'`}>
             <TaskViewHeader/>
             <TaskViewMain/>
         </section>
