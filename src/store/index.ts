@@ -1,1 +1,1 @@
-export {layoutStateAtom} from "./LayoutStateStore";
+export {currentTaskStateStore} from "./CurrentTaskStateStore";
