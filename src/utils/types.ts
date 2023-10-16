@@ -20,7 +20,7 @@ export type User = {
     createdAt: string;
 }
 
-export type Task = {
+export interface Task {
     _id: string;
     groupId: string;
     description: string;
