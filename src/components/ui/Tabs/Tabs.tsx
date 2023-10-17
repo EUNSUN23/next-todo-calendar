@@ -1,13 +1,12 @@
+'use client';
 import React from 'react';
-import TabItem, {TabItemProps} from "@/components/ui/Tabs/TabItem";
+import TabItem from "@/components/ui/Tabs/TabItem";
 import {useRecoilValue} from "recoil";
-import {currentTaskStateStore} from "@/store";
+import {taskTodoTabListStateStore} from "@/store";
 
-interface TabsProps {
-    tabInfoList: TabItemProps[];
-}
-function Tabs({tabInfoList}:TabsProps) {
-    const {currentTask} = useRecoilValue(currentTaskStateStore);
+
+function Tabs() {
+    const taskTodoTabList = useRecoilValue(taskTodoTabListStateStore);
 
     return (
         <div>
@@ -17,16 +16,15 @@ function Tabs({tabInfoList}:TabsProps) {
                 <select id="tabs" name="tabs"
                         className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
                     {
-                        tabInfoList.map(v => <option key={v.href} value={v.href}>{v.name}</option>)
+                        taskTodoTabList.map(v => <option key={v.id} value={v.id}>{v.name}</option>)
                     }
                 </select>
             </div>
             <div className="hidden sm:block">
                 <div className="border-b border-gray-200">
                     <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-                        <TabItem key={`/main/${currentTask.description}`} name='업무 목록' href={`/main/${currentTask.description}`}/>
                         {
-                            tabInfoList.map(v => <TabItem key={v.href} name={v.name} href={v.href}/>)
+                            taskTodoTabList.map(v => <TabItem key={v.id} name={v.name} id={v.id}/>)
                         }
                     </nav>
                 </div>
