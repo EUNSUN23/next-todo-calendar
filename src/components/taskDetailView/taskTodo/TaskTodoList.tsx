@@ -17,7 +17,7 @@ function TaskTodoList() {
     return (
         <div className='flex-col mt-5'>
             {showTaskTodoAddElement && <TaskTodoAddItem setIsOpen={setShowTaskTodoAddElement}/>}
-            {todos?.map((v) => <TaskTodoItem key={v._id} todo={v} taskId={currentTaskId}/>)}
+            {todos?.map((v) => <TaskTodoItem key={v._id} todo={v} />)}
             <div className='pl-16'>
                 <button
                     onClick={() => setShowTaskTodoAddElement(true)}

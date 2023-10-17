@@ -13,11 +13,10 @@ import TaskTodoWindowButton from "@/components/taskDetailView/taskTodo/TaskTodoW
 // TODO 6. 수정후에는 마우스 hover시
 
 type Props = {
-    todo?: Todo;
-    taskId: string;
+    todo: Todo;
 }
 
-export function TaskTodoItem({todo, taskId}: Props) {
+export function TaskTodoItem({todo}: Props) {
     const [showTodoTool, setShowTodoTool] = useState(false);
 
     function onMouseOverHandler(e) {
