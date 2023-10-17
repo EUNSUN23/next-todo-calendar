@@ -14,7 +14,7 @@ function TabItem({name, href}:TabItemProps) {
     return (
         <Link
             href={href}
-            className={`${dynamicClass} group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium`}
+            className={`${dynamicClass} group inline-flex items-center border-b-2 py-4 px-1 text-3xl font-medium`}
         >
             <span>{name}</span>
         </Link>
