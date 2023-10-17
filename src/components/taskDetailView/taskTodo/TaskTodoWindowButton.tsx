@@ -1,16 +1,27 @@
+'use client';
 import React from 'react';
 import {BiWindow} from "react-icons/bi";
-import {buttons} from "polished";
+import {Todo} from "@/utils/types";
+import {useSetRecoilState} from "recoil";
+import {currentTaskTodoStateStore, taskTodoTabListStateStore} from "@/store";
 
 interface TaskTodoWindowButtonProps {
-    id: string;
+    todo: Todo;
 }
 
-function TaskTodoWindowButton({id}: TaskTodoWindowButtonProps) {
+function TaskTodoWindowButton({todo}: TaskTodoWindowButtonProps) {
+    const setCurrentTaskTodo = useSetRecoilState(currentTaskTodoStateStore);
+    const setTaskTodoTabList = useSetRecoilState(taskTodoTabListStateStore);
+
+    function onClickTaskTodoWindowButtonHandler(){
+        setTaskTodoTabList(prevState => [...prevState, {name: todo.contents, id: todo._id!}]);
+        setCurrentTaskTodo({currentTaskTodoId:todo._id!, currentTaskTodo:todo});
+    }
+
     return (
         <button
             className='relative z-100 cursor-pointer mr-auto'
-            onClick={() => console.log("todo Id:  ", id)}
+            onClick={onClickTaskTodoWindowButtonHandler}
         >
             <BiWindow size={22} className='hover:text-gray-dark-3'/>
         </button>

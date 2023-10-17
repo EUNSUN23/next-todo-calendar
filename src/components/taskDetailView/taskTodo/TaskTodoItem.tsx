@@ -29,7 +29,7 @@ export function TaskTodoItem({todo}: Props) {
         setShowTodoTool(false);
     }
 
-    const windowButton =  showTodoTool ? <TaskTodoWindowButton id={todo._id!}/> : <></>;
+    const windowButton =  showTodoTool ? <TaskTodoWindowButton todo={todo}/> : <></>;
 
     return (
         <div
