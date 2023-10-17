@@ -10,8 +10,8 @@ import {DefaultTask} from "@/utils/DefaultTask";
 function MainLayout() {
     const [{currentTask}, setCurrentTask] = useRecoilState(currentTaskStateStore);
 
-    const fullDisplay = "xl:basis-[850px] flex max-lg:flex-col";
-    const todoDisplay = "lg:basis-[400px] md:basis-[250px]";
+    const fullDisplay = "lg:basis-[400px] md:basis-[250px]";
+    const todoDisplay = "xl:basis-[850px] flex max-lg:flex-col";
 
     return (
         <>
