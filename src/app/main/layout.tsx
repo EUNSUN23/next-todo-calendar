@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import CalendarSection from "@/components/CalendarSection";
 import TaskView from "@/components/TaskView";
