@@ -24,6 +24,7 @@ function Tabs({tabInfoList}:TabsProps) {
             <div className="hidden sm:block">
                 <div className="border-b border-gray-200">
                     <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+                        <TabItem key={`/main/${currentTask.description}`} name='업무 목록' href={`/main/${currentTask.description}`}/>
                         {
                             tabInfoList.map(v => <TabItem key={v.href} name={v.name} href={v.href}/>)
                         }
