@@ -1,10 +1,14 @@
 import React from 'react';
 import TabItem, {TabItemProps} from "@/components/ui/Tabs/TabItem";
+import {useRecoilValue} from "recoil";
+import {currentTaskStateStore} from "@/store";
 
 interface TabsProps {
     tabInfoList: TabItemProps[];
 }
 function Tabs({tabInfoList}:TabsProps) {
+    const {currentTask} = useRecoilValue(currentTaskStateStore);
+
     return (
         <div>
             <div className="sm:hidden">
@@ -21,7 +25,7 @@ function Tabs({tabInfoList}:TabsProps) {
                 <div className="border-b border-gray-200">
                     <nav className="-mb-px flex space-x-8" aria-label="Tabs">
                         {
-                            tabInfoList.map(v => <TabItem name={v.name} href={v.href}/>)
+                            tabInfoList.map(v => <TabItem key={v.href} name={v.name} href={v.href}/>)
                         }
                     </nav>
                 </div>
