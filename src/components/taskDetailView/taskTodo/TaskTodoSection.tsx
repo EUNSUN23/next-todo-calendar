@@ -1,19 +1,15 @@
 import React from 'react';
 import TaskTodoList from "@/components/taskDetailView/taskTodo/TaskTodoList";
 import TaskTodoFilter from "@/components/taskDetailView/taskTodo/TaskTodoFilter";
-import Tabs from "@/components/ui/Tabs";
+import Tabs from "@/components/ui/Tabs/Tabs";
 
 
 function TaskTodoSection() {
 
     const tabInfoList = [
         {
-            name:'업무 목록',
-            href:'/main/project1/task1'
-        },
-        {
             name:'task1',
-            href:'/main/project1/task1'
+            href:'/main/task1 description/task1'
         }
     ]
 
