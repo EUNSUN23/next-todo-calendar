@@ -14,7 +14,7 @@ function TaskTodoWindowButton({todo}: TaskTodoWindowButtonProps) {
     const setTaskTodoTabList = useSetRecoilState(taskTodoTabListStateStore);
 
     function onClickTaskTodoWindowButtonHandler(){
-        setTaskTodoTabList(prevState => [...prevState, {name: todo.contents, id: todo._id!}]);
+        setTaskTodoTabList([{name:'업무 목록',id:'taskTodoList'},{name: todo.contents, id: todo._id!}]);
         setCurrentTaskTodo({currentTaskTodoId:todo._id!, currentTaskTodo:todo});
     }
 
