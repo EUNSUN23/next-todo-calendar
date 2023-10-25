@@ -68,7 +68,7 @@ export async function editTaskById(requestVo: TaskEditRequestVo) {
 
 export async function getTaskTodoById(requestVo: TaskTodoRequestVo) {
     const query = `*[_type == "todo" && groupId == "${requestVo.groupId}"]{
-        _id, groupId, contents, finish,createdBy->, updateDate, assignee->
+        _id, groupId, contents, finish, createdBy->, updateDate, assignee[]->
     }`;
 
     const res = await client.fetch(query);
