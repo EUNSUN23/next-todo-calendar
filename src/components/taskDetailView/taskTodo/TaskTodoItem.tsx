@@ -42,7 +42,7 @@ export function TaskTodoItem({todo}: Props) {
             onMouseOver={onMouseOverHandler}
             onMouseLeave={onMouseLeaveHandler}
         >
-            {showTools && <TaskTodoTool todoId={todo._id!}/>}
+            {showTools && <TaskTodoTool/>}
             <TaskTodoInput initContents={todo?.contents || ''}>
                 {windowButton}
             </TaskTodoInput>
