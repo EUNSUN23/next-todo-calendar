@@ -79,14 +79,13 @@ export async function getTaskTodoById(requestVo: TaskTodoRequestVo) {
 export async function createEditTaskTodo(requestVo: TaskTodoRequestVo) {
     // create
     if(requestVo.todo !== undefined){
-        const todoId = uuidv4();
         return await client
             .transaction()
-            .create({_type: 'todo', _id: todoId, ...requestVo.todo})
-            .patch(requestVo.groupId, task =>
+            .create({_type: 'todo', ...requestVo.todo})
+            .patch(requestVo.groupId, (task) =>
                 task
                     .setIfMissing({todos: []})
-                    .append('todos', [{_ref: todoId, _type: 'reference'}])
+                    .append('todos', [{ _type: 'reference'}])
             )
             .commit({autoGenerateArrayKeys: true});
     }else{
