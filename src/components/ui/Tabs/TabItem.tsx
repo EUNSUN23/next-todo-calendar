@@ -19,7 +19,7 @@ function TabItem({name, id}: TaskTodoTab) {
 
     const queryClient = useQueryClient();
 
-    const dynamicClass = currentTaskTodoTab.id === id ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700';
+    const dynamicClass = currentTaskTodoTab?.id === id ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700';
 
     function onClickTabItemHandler() {
         if (id === 'taskTodoList') {
@@ -30,7 +30,7 @@ function TabItem({name, id}: TaskTodoTab) {
 
         const todos = queryClient.getQueryState(['taskTodo']);
         const currentTaskTodo = todos?.data.find(v => v._id === id);
-        setCurrentTaskTodo({currentTaskTodoId: id, currentTaskTodo});
+        setCurrentTaskTodo({currentTaskTodoId: id, currentTaskTodo, isOnHover:false});
     }
 
     return (

@@ -1,9 +1,11 @@
 'use client';
-import React, {useState} from 'react';
+import React from 'react';
 import {Todo} from "@/utils/types";
 import TaskTodoTool from "@/components/taskDetailView/taskTodo/TaskTodoTool";
 import TaskTodoInput from "@/components/taskDetailView/taskTodo/TaskTodoInput";
 import TaskTodoWindowButton from "@/components/taskDetailView/taskTodo/TaskTodoWindowButton";
+import {useRecoilState, useResetRecoilState} from "recoil";
+import {currentTaskTodoStateStore} from "@/store";
 
 // TODO 1-2. dot 클릭시 다음 항목 나오게 하기 - 삭제, todo 할당하기, 타입 변경(todo <-> note 아이콘으로.)
 // TODO 2. + 클릭시 sub 업무/note form 생성
@@ -17,19 +19,22 @@ type Props = {
 }
 
 export function TaskTodoItem({todo}: Props) {
-    const [showTodoTool, setShowTodoTool] = useState(false);
+    const [{isOnHover, currentTaskTodoId}, setCurrentTaskTodo] = useRecoilState(currentTaskTodoStateStore);
+    const resetCurrentTaskTodo = useResetRecoilState(currentTaskTodoStateStore);
+    const showTools = isOnHover && todo._id === currentTaskTodoId;
 
     function onMouseOverHandler(e) {
         e.stopPropagation();
-        setShowTodoTool(true);
+        setCurrentTaskTodo({currentTaskTodoId:todo._id!, currentTaskTodo:todo, isOnHover:true});
+
     }
 
     function onMouseLeaveHandler(e) {
         e.stopPropagation();
-        setShowTodoTool(false);
+        resetCurrentTaskTodo();
     }
 
-    const windowButton =  showTodoTool ? <TaskTodoWindowButton todo={todo}/> : <></>;
+    const windowButton =  showTools ? <TaskTodoWindowButton todo={todo}/> : <></>;
 
     return (
         <div
@@ -37,7 +42,7 @@ export function TaskTodoItem({todo}: Props) {
             onMouseOver={onMouseOverHandler}
             onMouseLeave={onMouseLeaveHandler}
         >
-            {showTodoTool && <TaskTodoTool/>}
+            {showTools && <TaskTodoTool todoId={todo._id!}/>}
             <TaskTodoInput initContents={todo?.contents || ''}>
                 {windowButton}
             </TaskTodoInput>
