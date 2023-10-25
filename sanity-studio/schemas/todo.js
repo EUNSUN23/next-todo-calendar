@@ -4,11 +4,6 @@ export default {
     type: 'document',
     fields:[
         {
-            title:'Id',
-            name:'id',
-            type:'string'
-        },
-        {
             title:'GroupId',
             name:'groupId',
             type:'string'
@@ -37,8 +32,13 @@ export default {
         {
             title: 'Assignee',
             name : 'assignee',
-            type : 'reference',
-            to:[{type:'user'}]
+            type:'array',
+            of:[
+                {
+                    type:'reference',
+                    to:[{type:'user'}]
+                }
+            ]
         }
     ]
 }
