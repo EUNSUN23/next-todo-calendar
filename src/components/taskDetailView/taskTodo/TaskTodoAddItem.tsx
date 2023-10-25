@@ -6,9 +6,10 @@ import {formatDateToStr} from "@/utils/common";
 import {DateFormat} from "@/utils/constant";
 import Todo from "../../../../sanity-studio/schemas/todo";
 import {TaskTodoRequestVo} from "@/utils/types";
-import {useOpenTask} from "@/context/OpenTaskContext";
 import {useCreateTaskTodo} from "@/hooks/useCreateTaskTodo";
 import TaskTodoAddInput from "@/components/taskDetailView/taskTodo/TaskTodoAddInput";
+import {currentTaskStateStore} from "@/store";
+import {useRecoilValue} from "recoil";
 
 interface TaskTodoAddItemProps {
     setIsOpen:Dispatch<SetStateAction<boolean>>;
@@ -17,7 +18,7 @@ interface TaskTodoAddItemProps {
 function TaskTodoAddItem({setIsOpen}:TaskTodoAddItemProps) {
     const [showTodoTool, setShowTodoTool] = useState(false);
     const [todoContents, setTodoContents] = useState('');
-    const {currentTaskId} = useOpenTask();
+    const {currentTaskId} = useRecoilValue(currentTaskStateStore);
     const {createTaskTodo} = useCreateTaskTodo();
 
     function onBlurHandler() {
