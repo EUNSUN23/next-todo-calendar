@@ -22,6 +22,11 @@ export default {
             title:'CreatedAt',
             name:'createdAt',
             type:'string'
+        },
+        {
+            title:'Color',
+            name:'color',
+            type:'string'
         }
     ]
 }
