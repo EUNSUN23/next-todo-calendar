@@ -1,3 +1,5 @@
+export type BadgeColor = 'gray' | 'red' | 'blue' | 'yellow' | 'green' | 'indigo' | 'purple' | 'pink';
+
 export type Note = {
     _id?: string;
     id?: string;
@@ -9,7 +11,7 @@ export type Note = {
 
 export type Todo = {
     finish: boolean;
-    assignee: User[]
+    assignee: User[];
 } & Note
 
 export type User = {
@@ -18,6 +20,7 @@ export type User = {
     userName: string;
     phone: string;
     createdAt: string;
+    color: BadgeColor;
 }
 
 export interface Task {
@@ -34,18 +37,18 @@ export interface Task {
 }
 
 export type TaskEditRequestVo = {
-    _id:string;
+    _id: string;
     key: string;
     value: string | boolean | Task | Task[] | Note | Note[] | Todo | Todo[] | User | User[];
 
 }
 
 export type TaskTodoRequestVo = {
-    _id?:string;
+    _id?: string;
     groupId: string;
-    editTargetField?:string;
+    editTargetField?: string;
     editTargetValue?: string | boolean | User;
-    todo?:Todo;
+    todo?: Todo;
 }
 
 export type ReactChildNode = {
