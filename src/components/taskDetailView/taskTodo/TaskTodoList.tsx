@@ -2,8 +2,8 @@
 import React, {useState} from 'react';
 import {RiAddLine} from "react-icons/ri";
 import TaskTodoAddItem from "@/components/taskDetailView/taskTodo/TaskTodoAddItem";
-import {useRecoilValue} from "recoil";
-import {currentTaskStateStore} from "@/store";
+import {useRecoilValue, useResetRecoilState} from "recoil";
+import {currentTaskStateStore, currentTaskTodoStateStore} from "@/store";
 import {useTaskTodo} from "@/hooks/useTaskTodo";
 import {TaskTodoItem} from "@/components/taskDetailView/taskTodo/TaskTodoItem";
 
@@ -13,11 +13,16 @@ function TaskTodoList() {
     const [showTaskTodoAddElement, setShowTaskTodoAddElement] = useState(false);
     const {currentTaskId} = useRecoilValue(currentTaskStateStore);
     const {todos} = useTaskTodo(currentTaskId);
+    const resetCurrentTaskTodo = useResetRecoilState(currentTaskTodoStateStore);
+
 
     return (
-        <div className='flex-col mt-5'>
+        <div className='flex-col pt-6 px-6'
+             onMouseLeave={() => resetCurrentTaskTodo()}
+             onMouseOver={() => resetCurrentTaskTodo()}
+        >
             {showTaskTodoAddElement && <TaskTodoAddItem setIsOpen={setShowTaskTodoAddElement}/>}
-            {todos?.map((v) => <TaskTodoItem key={v._id} todo={v} />)}
+            {todos?.map((v) => <TaskTodoItem key={v._id} todo={v}/>)}
             <div className='pl-16'>
                 <button
                     onClick={() => setShowTaskTodoAddElement(true)}
