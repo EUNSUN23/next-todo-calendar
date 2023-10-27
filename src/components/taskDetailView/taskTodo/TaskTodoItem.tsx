@@ -26,10 +26,10 @@ export function TaskTodoItem({todo}: Props) {
 
     return (
         <div
-            className='w-full flex items-center pl-16 relative'
+            className={`w-full flex items-center relative`}
             onMouseOver={onMouseOverHandler}
         >
-            {showTools && <TaskTodoTool/>}
+            <TaskTodoTool showTools={showTools}/>
             <TaskTodoInput initContents={todo?.contents || ''}>
                 {windowButton}
             </TaskTodoInput>

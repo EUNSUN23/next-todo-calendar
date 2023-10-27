@@ -17,7 +17,7 @@ function TaskTodoList() {
 
 
     return (
-        <div className='flex-col pt-6 px-6'
+        <div className='flex-col pt-6 px-4'
              onMouseLeave={() => resetCurrentTaskTodo()}
              onMouseOver={() => resetCurrentTaskTodo()}
         >
