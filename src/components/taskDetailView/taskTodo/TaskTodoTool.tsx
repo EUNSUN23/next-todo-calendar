@@ -1,15 +1,15 @@
 import React from 'react';
 import TaskTodoToolAddSub from "@/components/taskDetailView/taskTodo/TaskTodoToolAddSub";
-import TaskTodoToolControlTodo from "@/components/taskDetailView/taskTodo/TaskTodoToolControlTodo";
+import TaskTodoToolRemove from "@/components/taskDetailView/taskTodo/TaskTodoToolRemove";
 
 
-function TaskTodoTool() {
+function TaskTodoTool({showTools}:{showTools:boolean}) {
 
     return (
         <div
-            className='flex absolute top-1/2 left-0 translate-y-[-50%] text-3xl text-neutral-dark '>
+            className={`${showTools ? 'opacity-100':'opacity-0'} flex mx-1 text-3xl text-neutral-dark `}>
             <TaskTodoToolAddSub/>
-            <TaskTodoToolControlTodo/>
+            <TaskTodoToolRemove/>
         </div>
     );
 }
