@@ -96,6 +96,11 @@ export async function createEditTaskTodo(requestVo: TaskTodoRequestVo) {
     }
 }
 
+export async function deleteTaskTodo(taskId: string, todoId: string) {
+    await client.transaction()
+        .patch(taskId, patch => patch.unset([`todos[_ref == "${todoId}"]`]))
+        .commit();
 
+    return client.delete(todoId);
 }
 
