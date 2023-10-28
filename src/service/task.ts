@@ -11,6 +11,8 @@ const client = createClient({
     token: process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN
 });
 
+
+
 /**
  * groupId로 task 상세 조회
  * @param taskId
@@ -66,6 +68,10 @@ export async function editTaskById(requestVo: TaskEditRequestVo) {
         .commit({autoGenerateArrayKeys: true}); // Perform the patch and return a promise
 }
 
+/**
+ * 특정 Task 조회
+ * @param requestVo
+ */
 export async function getTaskTodoById(requestVo: TaskTodoRequestVo) {
     const query = `*[_type == "todo" && groupId == "${requestVo.groupId}"]{
         _id, groupId, contents, finish, createdBy->, updateDate, assignee[]->
@@ -75,6 +81,10 @@ export async function getTaskTodoById(requestVo: TaskTodoRequestVo) {
     return res;
 }
 
+/**
+ * 특정 Task todo아이템 추가
+ * @param requestVo
+ */
 export async function createEditTaskTodo(requestVo: TaskTodoRequestVo) {
     // create
     if (requestVo.todo !== undefined) {
@@ -96,6 +106,11 @@ export async function createEditTaskTodo(requestVo: TaskTodoRequestVo) {
     }
 }
 
+/**
+ * 특정 task todo아이템 삭제
+ * @param taskId
+ * @param todoId
+ */
 export async function deleteTaskTodo(taskId: string, todoId: string) {
     await client.transaction()
         .patch(taskId, patch => patch.unset([`todos[_ref == "${todoId}"]`]))
