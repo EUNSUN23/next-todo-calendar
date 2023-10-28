@@ -12,7 +12,7 @@ export function useCreateTaskTodo(){
         mutationFn: async (requestVo:TaskTodoRequestVo) => {
             toast.loading('Todo 생성 중입니다.');
             await createTaskTodoApi(requestVo);
-            queryClient.invalidateQueries({
+            await queryClient.invalidateQueries({
                 queryKey:['taskTodo']
             });
         } ,
