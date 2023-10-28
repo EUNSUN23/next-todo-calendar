@@ -6,6 +6,7 @@ import {useRecoilValue, useResetRecoilState} from "recoil";
 import {currentTaskStateStore, currentTaskTodoStateStore} from "@/store";
 import {useTaskTodo} from "@/hooks/useTaskTodo";
 import {TaskTodoItem} from "@/components/taskDetailView/taskTodo/TaskTodoItem";
+import {ToastContainer} from "react-toastify";
 
 
 // todo - note는 todo에 속하게 둘건지, 따로 둘건지 ?
@@ -31,6 +32,13 @@ function TaskTodoList() {
                     <span>업무 목록 추가</span>
                 </button>
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                closeOnClick
+                rtl={false}
+                theme='light'
+            />
         </div>
     );
 }
