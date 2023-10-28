@@ -40,5 +40,15 @@ export default {
                 }
             ]
         }
-    ]
+    ],
+    preview:{
+        select:{
+            contents:'contents'
+        },
+        prepare({contents}){
+            return {
+                title:contents
+            }
+        }
+    }
 }

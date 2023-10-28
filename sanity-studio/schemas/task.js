@@ -63,5 +63,15 @@ export default {
             to:[{type:'user'}]
         },
 
-    ]
+    ],
+    preview:{
+        select:{
+            description:'description'
+        },
+        prepare({description}){
+            return {
+                title:description
+            }
+        }
+    }
 }
