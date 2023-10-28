@@ -1,6 +1,6 @@
 import {formatDateToStr} from "@/utils/common";
 import {DateFormat} from "@/utils/constant";
-import {TaskEditRequestVo, TaskTodoRequestVo} from "@/utils/types";
+import {Task, TaskEditRequestVo, TaskTodoRequestVo} from "@/utils/types";
 import {createClient} from "@sanity/client";
 
 const client = createClient({
@@ -11,6 +11,10 @@ const client = createClient({
     token: process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN
 });
 
+
+export async function createTask(requestVo:Task){
+    return await client.create({_type:'task',...requestVo});
+}
 
 
 /**
