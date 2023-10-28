@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import CalendarSection from "@/components/CalendarSection";
-import TaskView from "@/components/TaskView";
+import TaskView from "@/components/taskView/TaskView";
 import TaskDetailView from "@/components/taskDetailView/TaskDetailView";
 import {useRecoilState} from "recoil";
 import {currentTaskStateStore} from "@/store/CurrentTaskStateStore";

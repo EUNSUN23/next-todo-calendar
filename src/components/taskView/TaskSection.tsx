@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import TaskView from "@/components/TaskView";
+import TaskView from "@/components/taskView/TaskView";
 import {useOpenTask} from "@/context/OpenTaskContext";
 import TaskDetailView from "@/components/taskDetailView/TaskDetailView";
 

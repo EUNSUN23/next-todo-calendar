@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskSection from "@/components/TaskSection";
+import TaskSection from "@/components/taskView/TaskSection";
 import CalendarSection from "@/components/CalendarSection";
 import Header from "@/components/Header";
 import {CurrentTaskProvider} from "@/context/OpenTaskContext";

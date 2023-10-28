@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import TaskViewHeader from "@/components/TaskViewHeader";
-import TaskViewMain from "@/components/TaskViewMain";
+import TaskViewHeader from "@/components/taskView/TaskViewHeader";
+import TaskViewMain from "@/components/taskView/TaskViewMain";
 import {currentTaskStateStore} from "@/store";
 import {useRecoilValue} from "recoil";
 

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import TaskItem from "@/components/TaskItem";
+import TaskItem from "@/components/taskView/TaskItem";
 import {useTasks} from "@/hooks/useTasks";
 
 function TaskViewMain() {
