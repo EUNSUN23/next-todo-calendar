@@ -4,11 +4,6 @@ export default {
     type: 'document',
     fields: [
         {
-            title: 'GroupId',
-            name: 'groupId',
-            type: 'string'
-        },
-        {
             title: 'Description',
             name: 'description',
             type: 'string',

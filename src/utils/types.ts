@@ -25,7 +25,6 @@ export type User = {
 
 export interface Task {
     _id: string;
-    groupId: string;
     description: string;
     start: string;
     end: string;

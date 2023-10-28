@@ -19,7 +19,7 @@ const client = createClient({
  */
 export async function getTaskById(taskId: string) {
     const query = `*[_type == "task" && _id == "${taskId}"]{
-        _id, groupId, description, start, end, level, finish,
+        _id, description, start, end, level, finish,
         notes[]->, todos[]->, createdBy->
     }[0]`;
 
@@ -36,7 +36,7 @@ export async function getTasks() {
     const endDate = formatDateToStr(lastDayOfMonth, DateFormat.YMD_DASH);
 
     const query = `*[_type == "task" && start <= "${endDate} && !finish"]{
-        _id, groupId, description, start, end, level, finish
+        _id, description, start, end, level, finish
     }`;
     const res = await client.fetch(query);
 
